@@ -17,7 +17,8 @@ import {
   Card,
   Tag,
   SectionDivider,
-  PixelIcon
+  PixelIcon,
+  ScrambleText
 } from "./slide-components"
 import { motion } from "framer-motion"
 
@@ -1105,13 +1106,13 @@ export const slides = [
 // SPEAKER NOTES
 // ============================================================
 export const speakerNotes: Record<number, string> = {
-  0: \`Welcome to this presentation on Claude AI.
+  0: `Welcome to this presentation on Claude AI.
 
 I am Abdoullah Ndao and today we will see how to use AI effectively for software development.
 
-This presentation is based on Matt Pocock's talk at the AI Engineer Conference 2026, titled "Software Fundamentals Matter More Than Ever".\`,
+This presentation is based on Matt Pocock's talk at the AI Engineer Conference 2026, titled "Software Fundamentals Matter More Than Ever".`,
 
-  1: \`Here is what we will cover today.
+  1: `Here is what we will cover today.
 
 We'll start by looking at what it was like BEFORE AI - traditional methods and their limits.
 
@@ -1121,17 +1122,17 @@ Then we'll talk about the trap many fall into - "vibe coding".
 
 Finally, the 5 fundamental principles to truly succeed with AI.
 
-We'll end with some hands-on exercises and a live demo.\`,
+We'll end with some hands-on exercises and a live demo.`,
 
-  2: \`Before AI, development looked like this:
+  2: `Before AI, development looked like this:
 
 MANUAL EVERYTHING: Every line of code written by hand. Debugging line by line. Documentation we write ourselves. Stack Overflow open permanently to copy-paste solutions.
 
 SPECIALIZED TEAMS: Experts were needed for each domain. A frontend expert, a backend expert, a DevOps expert, a security expert, a database expert, a testing expert. Knowledge silos everywhere.
 
-LONG CYCLES: Weeks to release an MVP. Months for a feature. Years to master a technology stack.\`,
+LONG CYCLES: Weeks to release an MVP. Months for a feature. Years to master a technology stack.`,
 
-  3: \`And here are the concrete problems it created:
+  3: `And here are the concrete problems it created:
 
 The entry barrier was huge. 3 to 5 years before being truly productive in a company.
 
@@ -1143,9 +1144,9 @@ Documentation was always obsolete. You spend your time searching, and it's never
 
 The complexity of frameworks exploding. Each year, more deps, more configs.
 
-And the famous "bus factor = 1" - all the knowledge in a single person's head.\`,
+And the famous "bus factor = 1" - all the knowledge in a single person's head.`,
 
-  4: \`Now AI arrives and changes everything. But watch out!
+  4: `Now AI arrives and changes everything. But watch out!
 
 This quote from Matt Pocock perfectly summarizes the situation:
 
@@ -1153,9 +1154,9 @@ This quote from Matt Pocock perfectly summarizes the situation:
 
 The question is no longer "should we use AI?" - it's obvious that yes.
 
-The real question is: HOW to use it correctly?\`,
+The real question is: HOW to use it correctly?`,
 
-  5: \`So what can Claude really do?
+  5: `So what can Claude really do?
 
 CODE GENERATION: Over 50 languages supported. Best practices are integrated by default.
 
@@ -1171,9 +1172,9 @@ SECURITY: Detects vulnerabilities, suggests fixes, code audit.
 
 REFACTORING: Improves structure, reduces complexity, modernizes legacy code.
 
-RAPID PROTOTYPING: From concept to MVP in hours, no longer weeks.\`,
+RAPID PROTOTYPING: From concept to MVP in hours, no longer weeks.`,
 
-  6: \`The numbers speak for themselves:
+  6: `The numbers speak for themselves:
 
 55% faster code writing - measured by GitHub on millions of devs.
 
@@ -1183,23 +1184,23 @@ RAPID PROTOTYPING: From concept to MVP in hours, no longer weeks.\`,
 
 40% fewer production bugs.
 
-These numbers come from GitHub Copilot research and the Stack Overflow Developer Survey 2025.\`,
+These numbers come from GitHub Copilot research and the Stack Overflow Developer Survey 2025.`,
 
-  7: \`But here is the trap many fall into: "Vibe Coding" or "Specs-to-Code".
+  7: `But here is the trap many fall into: "Vibe Coding" or "Specs-to-Code".
 
 THE IDEA is seductive: I write a spec in natural language, the AI generates all the code. If there's a bug, I modify the spec and regenerate. I never look at the code. AI is my "intelligent compiler".
 
-THE REALITY is brutal: The first run, it works, the code is OK. The second run, the quality starts to degrade. The third run, it's spaghetti code. Impossible to debug. Impossible to maintain.\`,
+THE REALITY is brutal: The first run, it works, the code is OK. The second run, the quality starts to degrade. The third run, it's spaghetti code. Impossible to debug. Impossible to maintain.`,
 
-  8: \`It's the concept of software entropy, taken from the book "The Pragmatic Programmer":
+  8: `It's the concept of software entropy, taken from the book "The Pragmatic Programmer":
 
 "Entropy is the idea that things tend towards disaster and collapse. This is exactly how most software systems behave too."
 
 WITHOUT INTENTIONAL DESIGN: Every change that ignores global design = degradation. And with AI, code rots FASTER than ever, because we can generate more code faster.
 
-THE SOLUTION: Software engineering fundamentals are NOT optional. They are MORE IMPORTANT than ever.\`,
+THE SOLUTION: Software engineering fundamentals are NOT optional. They are MORE IMPORTANT than ever.`,
 
-  9: \`And here is Matt Pocock's central thesis:
+  9: `And here is Matt Pocock's central thesis:
 
 The developers who SUCCEED with AI aren't those who delegate everything to AI.
 
@@ -1207,9 +1208,9 @@ Nor are they those who use nothing at all.
 
 They are those who APPLY software engineering fundamentals WITH AI.
 
-AI amplifies everything - the good AND the bad. If you have good practices, AI amplifies them. If you have bad practices, AI amplifies them too.\`,
+AI amplifies everything - the good AND the bad. If you have good practices, AI amplifies them. If you have bad practices, AI amplifies them too.`,
 
-  10: \`Here are the 5 principles Matt Pocock recommends:
+  10: `Here are the 5 principles Matt Pocock recommends:
 
 1. GRILL ME - Have AI interrogate your specs
 2. UBIQUITOUS LANGUAGE - Create a shared vocabulary
@@ -1217,9 +1218,9 @@ AI amplifies everything - the good AND the bad. If you have good practices, AI a
 4. DEEP MODULES - Simple interface, complex implementation
 5. DESIGN VS IMPLEMENTATION - You: strategist. AI: tactician
 
-We will see each in detail.\`,
+We will see each in detail.`,
 
-  11: \`First principle: GRILL ME
+  11: `First principle: GRILL ME
 
 Matt Pocock says: "I give Claude a rough spec, then say 'Grill me'. I want it to ask me hard questions about everything I haven't thought through."
 
@@ -1227,9 +1228,9 @@ The idea is to reach a "shared conceptual design" BEFORE coding. Too many devs r
 
 EXAMPLE: You say "I want a todo app". Claude will ask: Multi-user or single-user? Local persistence or cloud? Deadlines, priorities, categories? Notifications? Mobile, desktop, both?
 
-These questions FORCE clarification of the design BEFORE coding.\`,
+These questions FORCE clarification of the design BEFORE coding.`,
 
-  12: \`Second principle: UBIQUITOUS LANGUAGE
+  12: `Second principle: UBIQUITOUS LANGUAGE
 
 It comes from Domain-Driven Design by Eric Evans. The idea is to create a common vocabulary that everyone uses - devs, product, business, AND AI.
 
@@ -1237,9 +1238,9 @@ Matt Pocock says: "I create a vocabulary.md file that defines every term in my d
 
 EXAMPLE: We define what a Workspace, a Member, a Task, a Sprint are. We define business rules: a Task belongs to only one Workspace, a Member can have multiple Tasks, etc.
 
-When Claude has this context, the generated code is CONSISTENT.\`,
+When Claude has this context, the generated code is CONSISTENT.`,
 
-  13: \`Third principle: TDD with AI
+  13: `Third principle: TDD with AI
 
 Matt Pocock says: "Write the test first. The test IS the spec. Then tell Claude to make it pass. Instant feedback loop."
 
@@ -1248,9 +1249,9 @@ It's powerful because:
 2. Claude has a clear and measurable goal
 3. You know immediately if it works or not
 
-EXAMPLE: You write a test that verifies the password is hashed before being saved. Then you tell Claude: "Make this test pass". Claude generates the implementation.\`,
+EXAMPLE: You write a test that verifies the password is hashed before being saved. Then you tell Claude: "Make this test pass". Claude generates the implementation.`,
 
-  14: \`Fourth principle: DEEP MODULES
+  14: `Fourth principle: DEEP MODULES
 
 It comes from the book "A Philosophy of Software Design" by John Ousterhout.
 
@@ -1258,9 +1259,9 @@ The idea: A deep module does a lot with a simple interface. It's easy to test an
 
 SHALLOW MODULE: sendEmail with 20 parameters - to, from, subject, body, cc, bcc, attachments, replyTo, headers... It's hard to test, and AI struggles to use it correctly.
 
-DEEP MODULE: emailService.send(notification) - 1 clear parameter. Easy to test. AI understands immediately.\`,
+DEEP MODULE: emailService.send(notification) - 1 clear parameter. Easy to test. AI understands immediately.`,
 
-  15: \`Fifth principle: DESIGN VS IMPLEMENTATION
+  15: `Fifth principle: DESIGN VS IMPLEMENTATION
 
 Matt Pocock says: "You are the strategist. AI is the tactician. You decide WHAT to build and WHY. AI finds HOW."
 
@@ -1268,41 +1269,41 @@ YOU DECIDE: Global architecture, technology choices, public interfaces, critical
 
 AI EXECUTES: Implementation details, writing tests, boilerplate and CRUD, guided refactoring.
 
-Never let AI take architecture decisions. That's YOUR job.\`,
+Never let AI take architecture decisions. That's YOUR job.`,
 
-  16: \`Now, let's practice these principles! 
+  16: `Now, let's practice these principles! 
 
 We have prepared 3 exercises for you to try right now in your IDE or Claude interface.
 
 Exercise 1 will focus on 'Grilling' your ideas.
 Exercise 2 will focus on defining a Ubiquitous Language.
-Exercise 3 will focus on TDD as a specification tool.\`,
+Exercise 3 will focus on TDD as a specification tool.`,
 
-  17: \`Exercise 1: GRILL ME
+  17: `Exercise 1: GRILL ME
 
 Take a vague idea you've had for a side project. Maybe a fitness tracker, a recipe manager, or a budget app.
 
 Paste it into Claude and simply say: 'Grill me on this design'.
 
-Observe the questions it asks. How many of them had you already considered? How many change your approach?\`,
+Observe the questions it asks. How many of them had you already considered? How many change your approach?`,
 
-  18: \`Exercise 2: VOCABULARY
+  18: `Exercise 2: VOCABULARY
 
 For a Library system, define the difference between a 'Loan' and a 'Checkout'. 
 
 Write it down in a markdown block, then ask Claude to generate a database schema based on that specific vocabulary.
 
-See if it respects your naming conventions or falls back to generic defaults.\`,
+See if it respects your naming conventions or falls back to generic defaults.`,
 
-  19: \`Exercise 3: TDD
+  19: `Exercise 3: TDD
 
 Write a failing test for a 'calculateDiscount' function that gives 10% off to 'VIP' customers and 20% off to 'SUPER_VIP' customers.
 
 Pass the test to Claude and say 'Make it pass'. 
 
-Check if the implementation is clean and respects the logic defined in your test.\`,
+Check if the implementation is clean and respects the logic defined in your test.`,
 
-  20: \`Let's recap the 5 principles:
+  20: `Let's recap the 5 principles:
 
 1. GRILL ME - Have AI interrogate your specs before coding
 2. UBIQUITOUS LANGUAGE - Create a shared vocabulary in a file
@@ -1310,18 +1311,18 @@ Check if the implementation is clean and respects the logic defined in your test
 4. DEEP MODULES - Simple interface, complex implementation
 5. DESIGN VS IMPLEMENTATION - You: strategist. AI: tactician
 
-Apply these 5 principles and you will see a huge difference in the quality of generated code.\`,
+Apply these 5 principles and you will see a huge difference in the quality of generated code.`,
 
-  21: \`Now, let's go for the demo!
+  21: `Now, let's go for the demo!
 
 I will show you these principles in action with Claude.
 
 We will build something together applying:
 - "Grill Me" to clarify specs
 - A vocabulary file for context
-- TDD for critical features\`,
+- TDD for critical features`,
 
-  22: \`Here are some resources to go further:
+  22: `Here are some resources to go further:
 
 VIDEO SOURCE: Matt Pocock - "Software Fundamentals Matter More Than Ever" - AI Engineer Conference 2026
 
@@ -1330,9 +1331,9 @@ RECOMMENDED BOOKS:
 - "The Pragmatic Programmer" by Hunt & Thomas - for software entropy
 - "Domain-Driven Design" by Eric Evans - for ubiquitous language
 
-TOOLS: Claude, Claude Code, v0.dev, Cursor\`,
+TOOLS: Claude, Claude Code, v0.dev, Cursor`,
 
-  23: \`To conclude:
+  23: `To conclude:
 
 AI doesn't replace fundamentals. It AMPLIFIES them.
 
@@ -1340,5 +1341,5 @@ If you have good dev practices, AI will make you 10x more productive.
 
 If you have bad practices, AI will bury you 10x faster.
 
-Thank you very much! Any questions?\`
+Thank you very much! Any questions?`
 }
