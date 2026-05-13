@@ -1,7 +1,7 @@
 "use client"
 
-import { motion, type Variants } from "framer-motion"
-import { ReactNode } from "react"
+import { motion, type Variants, AnimatePresence } from "framer-motion"
+import { ReactNode, useState, useEffect } from "react"
 
 export const fadeIn: Variants = {
   initial: { opacity: 0 },
@@ -36,6 +36,48 @@ export function Slide({ children, className = "" }: SlideProps) {
       {children}
     </motion.div>
   )
+}
+
+export function ScrambleText({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) {
+  const [displayText, setDisplayText] = useState("")
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*"
+
+  useEffect(() => {
+    let iteration = 0
+    let interval: NodeJS.Timeout
+
+    const startAnimation = () => {
+      interval = setInterval(() => {
+        setDisplayText(
+          text
+            .split("")
+            .map((char, index) => {
+              if (char === " ") return " "
+              if (index < iteration) {
+                return text[index]
+              }
+              return characters[Math.floor(Math.random() * characters.length)]
+            })
+            .join("")
+        )
+
+        if (iteration >= text.length) {
+          clearInterval(interval)
+        }
+
+        iteration += 1 / 3
+      }, 30)
+    }
+
+    const timeout = setTimeout(startAnimation, delay * 1000)
+
+    return () => {
+      clearInterval(interval)
+      clearTimeout(timeout)
+    }
+  }, [text, delay])
+
+  return <span className={className}>{displayText || text.split("").map(() => " ").join("")}</span>
 }
 
 export function SlideTitle({ children, className = "" }: { children: ReactNode; className?: string }) {

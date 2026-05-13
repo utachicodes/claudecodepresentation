@@ -43,7 +43,7 @@ function TitleSlide() {
         </motion.div>
         
         <SlideTitle className="text-center">
-          <span className="text-primary">Claude</span> AI
+          <ScrambleText text="Claude" className="text-primary" /> <ScrambleText text="AI" />
         </SlideTitle>
         
         <motion.h2 
@@ -90,7 +90,7 @@ function AgendaSlide() {
   return (
     <Slide>
       <div className="w-full max-w-3xl">
-        <SlideTitle>// AGENDA</SlideTitle>
+        <SlideTitle><ScrambleText text="// AGENDA" /></SlideTitle>
         <SlideSubtitle>What we will cover today</SlideSubtitle>
         
         <SlideContent delay={0.2} className="mt-12">
@@ -133,7 +133,7 @@ function BeforeAISlide() {
     <Slide>
       <div className="w-full max-w-5xl">
         <SlideTitle>
-          Development <span className="text-primary">before</span> AI
+          <ScrambleText text="Development" /> <ScrambleText text="before" className="text-primary" /> <ScrambleText text="AI" />
         </SlideTitle>
         <SlideSubtitle>
           How we used to build software
@@ -169,7 +169,7 @@ function ProblemsSlide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <SlideTitle>
-          Persistent <span className="text-primary">Problems</span>
+          <ScrambleText text="Persistent" /> <ScrambleText text="Problems" className="text-primary" />
         </SlideTitle>
         
         <SlideContent delay={0.2} className="mt-12">
@@ -203,7 +203,7 @@ function EnterAISlide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <SlideTitle>
-          AI changes <span className="text-primary">everything</span>
+          <ScrambleText text="AI changes" /> <ScrambleText text="everything" className="text-primary" />
         </SlideTitle>
         <SlideSubtitle>
           But watch out for overhyped promises...
@@ -238,7 +238,7 @@ function ClaudeCapabilitiesSlide() {
     <Slide>
       <div className="w-full max-w-5xl">
         <SlideTitle>
-          What <span className="text-primary">Claude</span> can do
+          <ScrambleText text="What" /> <ScrambleText text="Claude" className="text-primary" /> <ScrambleText text="can do" />
         </SlideTitle>
         <SlideSubtitle>
           An assistant that truly understands code
@@ -267,7 +267,7 @@ function StatsSlide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <SlideTitle>
-          Measurable <span className="text-primary">Impact</span>
+          <ScrambleText text="Measurable" /> <ScrambleText text="Impact" className="text-primary" />
         </SlideTitle>
         
         <SlideContent delay={0.2} className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -295,7 +295,7 @@ function TrapSlide() {
     <Slide>
       <div className="w-full max-w-5xl">
         <SlideTitle>
-          The Trap of <span className="text-primary">&quot;Vibe Coding&quot;</span>
+          <ScrambleText text="The Trap of" /> <ScrambleText text="&quot;Vibe Coding&quot;" className="text-primary" />
         </SlideTitle>
         <SlideSubtitle>
           The seductive approach that leads to disaster
@@ -338,7 +338,7 @@ function EntropySlide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <SlideTitle>
-          Software <span className="text-primary">Entropy</span>
+          <ScrambleText text="Software" /> <ScrambleText text="Entropy" className="text-primary" />
         </SlideTitle>
         
         <SlideContent delay={0.2} className="mt-8">
@@ -378,7 +378,7 @@ function ThesisSlide() {
     <Slide>
       <div className="w-full max-w-3xl text-center">
         <SlideTitle>
-          Matt Pocock&apos;s <span className="text-primary">Thesis</span>
+          <ScrambleText text="Matt Pocock's" /> <ScrambleText text="Thesis" className="text-primary" />
         </SlideTitle>
         
         <SlideContent delay={0.3} className="mt-12">
@@ -412,7 +412,7 @@ function PrinciplesIntroSlide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <SlideTitle>
-          <span className="text-primary">5</span> Fundamental Principles
+          <ScrambleText text="5" className="text-primary" /> <ScrambleText text="Fundamental Principles" />
         </SlideTitle>
         <SlideSubtitle>
           Extracted from Matt Pocock&apos;s talk
@@ -459,7 +459,7 @@ function GrillMeSlide() {
         </motion.div>
         
         <SlideTitle>
-          <span className="text-primary">&quot;Grill Me&quot;</span>
+          <ScrambleText text="&quot;Grill Me&quot;" className="text-primary" />
         </SlideTitle>
         <SlideSubtitle>
           Reach a shared conceptual design
@@ -511,7 +511,7 @@ function UbiquitousLanguageSlide() {
         </motion.div>
         
         <SlideTitle>
-          Ubiquitous <span className="text-primary">Language</span>
+          <ScrambleText text="Ubiquitous" /> <ScrambleText text="Language" className="text-primary" />
         </SlideTitle>
         <SlideSubtitle>
           Create a common vocabulary (Domain-Driven Design)
@@ -561,7 +561,7 @@ function TDDSlide() {
         </motion.div>
         
         <SlideTitle>
-          <span className="text-primary">TDD</span> with AI
+          <ScrambleText text="TDD" className="text-primary" /> <ScrambleText text="with AI" />
         </SlideTitle>
         <SlideSubtitle>
           Tests first = short feedback loops
@@ -612,7 +612,7 @@ function DeepModulesSlide() {
         </motion.div>
         
         <SlideTitle>
-          Deep <span className="text-primary">Modules</span>
+          <ScrambleText text="Deep" /> <ScrambleText text="Modules" className="text-primary" />
         </SlideTitle>
         <SlideSubtitle>
           Simple interface, complex implementation
@@ -668,7 +668,7 @@ function DesignVsImplementationSlide() {
         </motion.div>
         
         <SlideTitle>
-          Design vs <span className="text-primary">Implementation</span>
+          <ScrambleText text="Design vs" /> <ScrambleText text="Implementation" className="text-primary" />
         </SlideTitle>
         <SlideSubtitle>
           You: strategist. AI: tactician.
@@ -738,7 +738,7 @@ function ExercisesIntroSlide() {
     <Slide>
       <div className="w-full max-w-4xl text-center">
         <SlideTitle>
-          Hands-on <span className="text-primary">Exercises</span>
+          <ScrambleText text="Hands-on" /> <ScrambleText text="Exercises" className="text-primary" />
         </SlideTitle>
         <SlideSubtitle>
           Putting the principles into practice
@@ -783,7 +783,9 @@ function Exercise1Slide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <Tag active>EXERCISE 01</Tag>
-        <SlideTitle className="mt-6">The <span className="text-primary">Grill Me</span> Challenge</SlideTitle>
+        <SlideTitle className="mt-6">
+          <ScrambleText text="The" /> <ScrambleText text="Grill Me" className="text-primary" /> <ScrambleText text="Challenge" />
+        </SlideTitle>
         
         <SlideContent delay={0.2} className="mt-8">
           <Card highlight>
@@ -834,7 +836,9 @@ function Exercise2Slide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <Tag active>EXERCISE 02</Tag>
-        <SlideTitle className="mt-6">Speak the <span className="text-primary">Same Language</span></SlideTitle>
+        <SlideTitle className="mt-6">
+          <ScrambleText text="Speak the" /> <ScrambleText text="Same Language" className="text-primary" />
+        </SlideTitle>
         
         <SlideContent delay={0.2} className="mt-8">
           <Card highlight>
@@ -879,7 +883,9 @@ function Exercise3Slide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <Tag active>EXERCISE 03</Tag>
-        <SlideTitle className="mt-6">TDD: <span className="text-primary">Spec via Tests</span></SlideTitle>
+        <SlideTitle className="mt-6">
+          <ScrambleText text="TDD:" /> <ScrambleText text="Spec via Tests" className="text-primary" />
+        </SlideTitle>
         
         <SlideContent delay={0.2} className="mt-8">
           <Card highlight>
@@ -922,7 +928,7 @@ function RecapSlide() {
     <Slide>
       <div className="w-full max-w-4xl">
         <SlideTitle>
-          // <span className="text-primary">RECAP</span>
+          // <ScrambleText text="RECAP" className="text-primary" />
         </SlideTitle>
         
         <SlideContent delay={0.2} className="mt-12">
@@ -952,7 +958,7 @@ function DemoIntroSlide() {
     <Slide>
       <div className="w-full max-w-3xl text-center">
         <SlideTitle>
-          <span className="text-primary">Demo</span> Time
+          <ScrambleText text="Demo" className="text-primary" /> <ScrambleText text="Time" />
         </SlideTitle>
         <SlideSubtitle>
           Watching the principles in action
@@ -986,7 +992,7 @@ function ResourcesSlide() {
     <Slide>
       <div className="w-full max-w-3xl">
         <SlideTitle>
-          // <span className="text-primary">RESOURCES</span>
+          // <ScrambleText text="RESOURCES" className="text-primary" />
         </SlideTitle>
         
         <SlideContent delay={0.2} className="mt-12 space-y-6">
@@ -1032,7 +1038,7 @@ function ConclusionSlide() {
     <Slide>
       <div className="w-full max-w-3xl text-center">
         <SlideTitle>
-          Thank You!
+          <ScrambleText text="Thank You!" />
         </SlideTitle>
         
         <SlideContent delay={0.3} className="mt-8">
