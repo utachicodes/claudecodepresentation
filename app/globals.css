@@ -117,10 +117,13 @@
 
 /* CRT flicker */
 @keyframes flicker {
-  0%, 100% { opacity: 1; }
-  92% { opacity: 1; }
-  93% { opacity: 0.9; }
-  94% { opacity: 1; }
+  0% { opacity: 1; }
+  3% { opacity: 0.95; }
+  6% { opacity: 1; }
+  7% { opacity: 0.9; }
+  8% { opacity: 0.95; }
+  9% { opacity: 1; }
+  100% { opacity: 1; }
 }
 
 .crt-flicker {
@@ -207,5 +210,5 @@
 
 /* Orange text glow - subtle */
 .text-glow {
-  text-shadow: 0 0 10px var(--primary);
+  text-shadow: 0 0 15px var(--primary);
 }

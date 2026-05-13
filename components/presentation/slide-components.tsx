@@ -43,7 +43,7 @@ export function SlideTitle({ children, className = "" }: { children: ReactNode; 
     <motion.h1
       variants={slideUp}
       transition={{ duration: 0.3 }}
-      className={`font-pixel text-5xl md:text-7xl lg:text-8xl text-primary leading-none tracking-wide ${className}`}
+      className={`font-pixel text-5xl md:text-7xl lg:text-8xl text-primary leading-none tracking-wide text-glow ${className}`}
     >
       {children}
     </motion.h1>
