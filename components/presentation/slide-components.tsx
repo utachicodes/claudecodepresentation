@@ -15,6 +15,24 @@ export const slideUp: Variants = {
   exit: { opacity: 0, y: -20 }
 }
 
+export const scaleIn: Variants = {
+  initial: { opacity: 0, scale: 0.95 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.95 }
+}
+
+export const slideFromLeft: Variants = {
+  initial: { opacity: 0, x: -40 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: 40 }
+}
+
+export const slideFromRight: Variants = {
+  initial: { opacity: 0, x: 40 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -40 }
+}
+
 interface SlideProps {
   children: ReactNode
   className?: string
@@ -31,8 +49,8 @@ export function Slide({ children, className = "", variant = "light" }: SlideProp
       exit="exit"
       variants={{
         initial: { opacity: 0 },
-        animate: { opacity: 1, transition: { duration: 0.4, staggerChildren: 0.08 } },
-        exit: { opacity: 0, transition: { duration: 0.2 } }
+        animate: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.1 } },
+        exit: { opacity: 0, transition: { duration: 0.25 } }
       }}
       className={`min-h-screen w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 py-20 relative grain-texture ${bgClass} ${className}`}
     >
@@ -47,7 +65,7 @@ export function SlideTitle({ children, className = "" }: { children: ReactNode; 
   return (
     <motion.h1
       variants={slideUp}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight ${className}`}
     >
       {children}
@@ -59,8 +77,8 @@ export function SlideSubtitle({ children, className = "" }: { children: ReactNod
   return (
     <motion.p
       variants={slideUp}
-      transition={{ duration: 0.4, delay: 0.05 }}
-      className={`text-base md:text-lg mt-4 max-w-3xl leading-relaxed opacity-80 ${className}`}
+      transition={{ duration: 0.5, delay: 0.1 }}
+      className={`text-base md:text-lg mt-4 max-w-3xl leading-relaxed ${className}`}
     >
       {children}
     </motion.p>
@@ -70,7 +88,7 @@ export function SlideSubtitle({ children, className = "" }: { children: ReactNod
 export function SlideContent({ 
   children, 
   className = "", 
-  delay = 0.1 
+  delay = 0.15 
 }: { 
   children: ReactNode
   className?: string
@@ -79,7 +97,7 @@ export function SlideContent({
   return (
     <motion.div
       variants={slideUp}
-      transition={{ duration: 0.4, delay }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={className}
     >
       {children}
@@ -99,6 +117,7 @@ export function Card({
   return (
     <motion.div
       variants={slideUp}
+      whileHover={{ y: -2, transition: { duration: 0.2 } }}
       className={`p-6 rounded-xl ${highlight ? "bg-slate text-cream" : "card-elevated"} ${className}`}
     >
       {children}
@@ -121,7 +140,7 @@ export function GridCard({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
       className="card-elevated p-6 rounded-xl group cursor-default"
     >
@@ -137,7 +156,7 @@ export function GridCard({
 export function Quote({ text, author, source }: { text: string; author: string; source?: string }) {
   return (
     <motion.blockquote
-      variants={slideUp}
+      variants={slideFromLeft}
       className="my-8 max-w-3xl relative pl-8 border-l-2 border-gold"
     >
       <span className="quote-mark absolute -left-2 -top-4">&ldquo;</span>
@@ -170,6 +189,7 @@ export function CompareBox({
   return (
     <motion.div
       variants={slideUp}
+      whileHover={{ y: -2, transition: { duration: 0.2 } }}
       className={`${config.bg} ${config.border} border p-6 rounded-xl`}
     >
       <h3 className={`font-serif text-xl font-semibold mb-5 ${config.titleColor}`}>{title}</h3>
@@ -180,10 +200,10 @@ export function CompareBox({
             className="flex items-start gap-3 text-sm"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.15 + i * 0.05 }}
+            transition={{ delay: 0.2 + i * 0.06, duration: 0.3 }}
           >
-            <span className={`text-gold mt-0.5`}>{config.marker}</span>
-            <span className={type === 'bad' ? 'text-muted-foreground' : ''}>{item}</span>
+            <span className="text-gold mt-0.5">{config.marker}</span>
+            <span>{item}</span>
           </motion.li>
         ))}
       </ul>
@@ -196,7 +216,8 @@ export function Stat({ value, label, index = 0 }: { value: string; label: string
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
       className="text-center p-6 card-elevated rounded-xl"
     >
       <div className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">{value}</div>
@@ -220,7 +241,7 @@ export function Step({
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="flex items-start gap-5"
     >
       <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
@@ -258,9 +279,14 @@ export function Tag({ children, active = false, variant = "default" }: { childre
       ? 'bg-gold text-slate' 
       : 'bg-muted text-muted-foreground'
   return (
-    <span className={`inline-block px-4 py-2 text-xs font-medium uppercase tracking-wider rounded-full ${styles}`}>
+    <motion.span 
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3 }}
+      className={`inline-block px-4 py-2 text-xs font-medium uppercase tracking-wider rounded-full ${styles}`}
+    >
       {children}
-    </span>
+    </motion.span>
   )
 }
 
@@ -270,9 +296,19 @@ export function SectionDivider({ label }: { label: string }) {
       variants={slideUp}
       className="flex items-center gap-4 w-full max-w-2xl my-8"
     >
-      <div className="flex-1 decorative-line" />
+      <motion.div 
+        className="flex-1 decorative-line"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      />
       <span className="text-sm font-medium uppercase tracking-widest text-gold px-4">{label}</span>
-      <div className="flex-1 decorative-line" />
+      <motion.div 
+        className="flex-1 decorative-line"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      />
     </motion.div>
   )
 }
@@ -288,10 +324,17 @@ export function ListItem({
     <motion.li
       initial={{ opacity: 0, x: -15 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.06 }}
+      transition={{ duration: 0.4, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="flex items-start gap-4 py-2"
     >
-      <span className="text-gold mt-1">✦</span>
+      <motion.span 
+        className="text-gold mt-1"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.3, delay: index * 0.08 + 0.1, type: "spring" }}
+      >
+        ✦
+      </motion.span>
       <span className="leading-relaxed">{children}</span>
     </motion.li>
   )
@@ -323,13 +366,14 @@ export function Tile({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
+      whileHover={{ y: -3, transition: { duration: 0.2 } }}
       className="card-elevated p-6 rounded-xl"
     >
       <h3 className="font-serif text-xl font-semibold mb-3 text-gold">{title}</h3>
-      <div className="text-sm leading-relaxed opacity-80">{children}</div>
+      <div className="text-sm leading-relaxed">{children}</div>
     </motion.div>
   )
 }
@@ -337,11 +381,19 @@ export function Tile({
 export function WarningBox({ children }: { children: ReactNode }) {
   return (
     <motion.div
-      variants={slideUp}
+      variants={slideFromLeft}
+      whileHover={{ x: 4, transition: { duration: 0.2 } }}
       className="bg-destructive/5 border border-destructive/20 p-6 rounded-xl"
     >
       <div className="flex items-start gap-3">
-        <span className="text-destructive text-lg">⚠</span>
+        <motion.span 
+          className="text-destructive text-lg"
+          initial={{ rotate: -10 }}
+          animate={{ rotate: 0 }}
+          transition={{ duration: 0.4, type: "spring" }}
+        >
+          ⚠
+        </motion.span>
         <div className="text-sm leading-relaxed">{children}</div>
       </div>
     </motion.div>
@@ -351,8 +403,13 @@ export function WarningBox({ children }: { children: ReactNode }) {
 export function HighlightText({ children }: { children: ReactNode }) {
   return (
     <span className="relative inline-block">
-      <span className="relative z-10">{children}</span>
-      <span className="absolute bottom-0 left-0 w-full h-3 bg-gold/20 -z-0" />
+      <span className="relative z-10 font-medium">{children}</span>
+      <motion.span 
+        className="absolute bottom-0 left-0 w-full h-3 bg-gold/25 -z-0"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+      />
     </span>
   )
 }
@@ -374,8 +431,20 @@ export function SplitLayout({
 }) {
   return (
     <div className="grid md:grid-cols-2 gap-8 w-full max-w-6xl">
-      <div>{left}</div>
-      <div>{right}</div>
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {left}
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        {right}
+      </motion.div>
     </div>
   )
 }
