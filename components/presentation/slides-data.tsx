@@ -5,11 +5,9 @@ import {
   SlideTitle, 
   SlideSubtitle, 
   SlideContent,
-  GridCard,
   Quote,
   ListItem,
   CompareBox,
-  Step,
   Card,
   Tag,
   TileLayout,
@@ -39,7 +37,7 @@ function TitleSlide() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            Centre Guelwar — 2026
+            Centre Guelwar - 2026
           </motion.div>
           
           <SlideTitle className="text-cream">
@@ -75,7 +73,7 @@ function TitleSlide() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.6 }}
           >
-            The New Cultural Renaissance?
+            A New Age of Art and Ideas?
           </motion.h2>
 
           <motion.p 
@@ -88,7 +86,7 @@ function TitleSlide() {
           </motion.p>
 
           <motion.div 
-            className="mt-16 space-y-2"
+            className="mt-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.7 }}
@@ -107,7 +105,7 @@ function TitleSlide() {
               animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              Press [SPACE] to begin ✦
+              Press [SPACE] to begin
             </motion.p>
           </motion.div>
         </motion.div>
@@ -117,7 +115,86 @@ function TitleSlide() {
 }
 
 // ============================================================
-// SLIDE 2: THE ILLUSION OF THE CREATIVE RIVAL
+// SLIDE 2: WHAT IS AI & ALGORITHMS?
+// ============================================================
+function WhatIsAISlide() {
+  return (
+    <Slide variant="light">
+      <div className="w-full max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          className="mb-3"
+        >
+          <Tag>Introduction</Tag>
+        </motion.div>
+        
+        <SlideTitle>
+          What is <span className="text-gold gold-underline">AI</span>?
+        </SlideTitle>
+        <SlideSubtitle>
+          Let us start with the basics. What are we actually talking about?
+        </SlideSubtitle>
+        
+        <SlideContent delay={0.3} className="mt-10">
+          <SplitLayout
+            left={
+              <Card>
+                <div className="space-y-4">
+                  <h3 className="font-serif text-2xl font-semibold">Artificial Intelligence (AI)</h3>
+                  <p className="text-sm leading-relaxed mb-3">
+                    AI is a computer program that learned from millions of books, 
+                    articles, and websites written by humans.
+                  </p>
+                  <p className="text-sm leading-relaxed mb-3">
+                    It does not have a brain. It does not feel anything. 
+                    It is very good at finding patterns and copying them.
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    Example: You type &ldquo;Tell me a joke about cats&rdquo; and AI writes one 
+                    because it has seen thousands of cat jokes before.
+                  </p>
+                </div>
+              </Card>
+            }
+            right={
+              <Card highlight>
+                <div className="space-y-4">
+                  <h3 className="font-serif text-2xl font-semibold">Algorithms</h3>
+                  <p className="text-sm leading-relaxed mb-3">
+                    An algorithm is simply a recipe. A list of steps to follow, like 
+                    &ldquo;First do this, then do that.&rdquo;
+                  </p>
+                  <p className="text-sm leading-relaxed mb-3">
+                    Your TikTok feed, YouTube recommendations, Spotify playlists, 
+                    they all use algorithms to decide what to show you.
+                  </p>
+                  <p className="text-sm leading-relaxed text-cream/90">
+                    The algorithm watches what you like, then gives you more 
+                    of the same thing. That is why you keep watching!
+                  </p>
+                </div>
+              </Card>
+            }
+          />
+        </SlideContent>
+
+        <SlideContent delay={0.6} className="mt-8">
+          <Card className="max-w-3xl mx-auto">
+            <p className="text-sm leading-relaxed text-center">
+              <strong className="text-gold">Remember:</strong> AI is a tool, like a paintbrush or a pen. 
+              It does not have ideas of its own. It copies what humans have done before.
+            </p>
+          </Card>
+        </SlideContent>
+      </div>
+    </Slide>
+  )
+}
+
+// ============================================================
+// SLIDE 3: THE ILLUSION OF THE CREATIVE RIVAL
 // ============================================================
 function CreativeRivalSlide() {
   return (
@@ -133,36 +210,36 @@ function CreativeRivalSlide() {
         </motion.div>
         
         <SlideTitle>
-          The Illusion of the <span className="text-gold gold-underline">Creative Rival</span>
+          Can AI <span className="text-gold gold-underline">Replace</span> Human Creativity?
         </SlideTitle>
         <SlideSubtitle>
-          Is your laptop secretly writing better poetry than you? Let&apos;s find out.
+          Is your laptop secretly a better artist than you? Let us find out.
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
           <SplitLayout
             left={
               <CompareBox
-                title="🤖 The Machine"
+                title="What AI Can Do"
                 items={[
-                  "Syntax, patterns & statistical probability",
-                  "Mimics human forms with stunning accuracy",
-                  "Has read every book — remembers none",
-                  "Generates from learned distributions",
-                  "Optimizes for predictability"
+                  "Read millions of books in seconds",
+                  "Write poems that sound nice",
+                  "Draw pictures in any style",
+                  "Copy patterns from old art",
+                  "Always available, never gets tired"
                 ]}
                 type="neutral"
               />
             }
             right={
               <CompareBox
-                title="🧠 The Human"
+                title="What Humans Can Do"
                 items={[
-                  "Memory, trauma, joy & sensory nuance",
-                  "The intentional spark behind the word",
-                  "Can cry at a sunset — AI can&apos;t",
-                  "Creates from consciousness & emotion",
-                  "Embraces beautiful imperfection"
+                  "Feel emotions and express them",
+                  "Create something never seen before",
+                  "Make mistakes that become beautiful",
+                  "Understand pain, joy, and love",
+                  "Choose to break the rules on purpose"
                 ]}
                 type="good"
               />
@@ -178,7 +255,7 @@ function CreativeRivalSlide() {
             transition={{ delay: 0.8 }}
           >
             <p className="text-sm text-muted-foreground italic">
-              &ldquo;AI doesn&apos;t CREATE — it COMBINES and RECOMBINES. Humans create from consciousness.&rdquo;
+              AI copies. Humans imagine. That is the difference.
             </p>
           </motion.div>
         </SlideContent>
@@ -188,7 +265,7 @@ function CreativeRivalSlide() {
 }
 
 // ============================================================
-// SLIDE 3: YOUTH CULTURE - FROM DIGITAL NATIVES TO AI NATIVES
+// SLIDE 4: YOUTH CULTURE - FROM DIGITAL NATIVES TO AI NATIVES
 // ============================================================
 function YouthCultureSlide() {
   return (
@@ -204,38 +281,41 @@ function YouthCultureSlide() {
         </motion.div>
 
         <SlideTitle>
-          Youth Culture: <span className="text-gold gold-underline">AI Natives</span>
+          Young People: <span className="text-gold gold-underline">The AI Generation</span>
         </SlideTitle>
         <SlideSubtitle>
-          Your grandparents learned to code. Your parents learned to Google. You learned to prompt.
+          Your grandparents learned to code. Your parents learned to Google. You learned to ask AI.
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
           <TileLayout columns={3}>
-            <Tile title="⚡ The Generational Leap" index={0}>
+            <Tile title="A New Way to Create" index={0}>
               <p className="mb-3">
-                From passive media consumption to immediate <HighlightText>algorithmic co-creation</HighlightText>.
+                Young people no longer just watch and listen. 
+                They <HighlightText>make things with AI right now</HighlightText>.
               </p>
               <p className="text-muted-foreground text-xs">
-                A 15-year-old in Dakar produces music that rivals professional studios — from their bedroom.
+                A kid in Dakar can make professional music from their bedroom using just a phone.
               </p>
             </Tile>
             
-            <Tile title="🎨 Democratizing Art" index={1}>
+            <Tile title="Art for Everyone" index={1}>
               <p className="mb-3">
-                Removing financial gatekeepers for <HighlightText>bedroom producers, writers & digital artists</HighlightText>.
+                Before, you needed expensive tools to make art. 
+                Now <HighlightText>anyone with a phone can create</HighlightText>.
               </p>
               <p className="text-muted-foreground text-xs">
-                No more &ldquo;you need a $2000 software license&rdquo; — just you, your phone, and想象力.
+                No more &ldquo;you need money to be an artist&rdquo; - just your imagination.
               </p>
             </Tile>
             
-            <Tile title="🌍 New Micro-Narratives" index={2}>
+            <Tile title="New Stories from Everywhere" index={2}>
               <p className="mb-3">
-                Industrial-grade creative power to <HighlightText>marginalized & underground voices</HighlightText>.
+                AI helps people from small towns and far-away places 
+                <HighlightText>share their stories with the whole world</HighlightText>.
               </p>
               <p className="text-muted-foreground text-xs">
-                Stories from Dakar, Manila, or Medellín reach global audiences — no gatekeepers needed.
+                A writer in a village can now reach readers in Paris, Tokyo, or New York.
               </p>
             </Tile>
           </TileLayout>
@@ -243,7 +323,7 @@ function YouthCultureSlide() {
 
         <SlideContent delay={0.6} className="mt-8">
           <Quote
-            text="The youth of today are not consumers of culture — they are its architects, with AI as their drafting tool."
+            text="Young people today are not just watching culture happen. They are building it, with AI as their toolbox."
             author="UNESCO Digital Culture Report, 2025"
           />
         </SlideContent>
@@ -253,7 +333,7 @@ function YouthCultureSlide() {
 }
 
 // ============================================================
-// SLIDE 4: LITERATURE & THE AUGMENTED WRITER
+// SLIDE 5: LITERATURE & THE AUGMENTED WRITER
 // ============================================================
 function LiteratureSlide() {
   return (
@@ -269,35 +349,35 @@ function LiteratureSlide() {
         </motion.div>
 
         <SlideTitle>
-          Literature & The <span className="text-gold gold-underline">Augmented Writer</span>
+          Books & Writing with <span className="text-gold gold-underline">AI Help</span>
         </SlideTitle>
         <SlideSubtitle>
-          Finally, an excuse for writer&apos;s block that doesn&apos;t involve Netflix
+          When the blank page scares you, AI can be your writing buddy
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
           <TileLayout columns={3}>
-            <Tile title="✍ Erasing the Blank Page" index={0}>
+            <Tile title="Say Goodbye to Writer's Block" index={0}>
               <ul className="space-y-2">
-                <ListItem>AI as your 24/7 creative sparring partner</ListItem>
-                <ListItem>Busts writer&apos;s block with targeted prompts</ListItem>
-                <ListItem>Brainstorms character flaws & plot twists</ListItem>
+                <ListItem>Stuck on what to write? AI gives you ideas</ListItem>
+                <ListItem>Need a character? AI helps you build one</ListItem>
+                <ListItem>Need a plot twist? AI suggests surprises</ListItem>
               </ul>
             </Tile>
             
-            <Tile title="🌐 Expanding Horizons" index={1}>
+            <Tile title="Speak Every Language" index={1}>
               <ul className="space-y-2">
-                <ListItem>Instant literary translations worldwide</ListItem>
-                <ListItem>Breaking linguistic isolation forever</ListItem>
-                <ListItem>Research in real-time, not weeks</ListItem>
+                <ListItem>Translate a story into 50 languages instantly</ListItem>
+                <ListItem>Readers everywhere can enjoy your work</ListItem>
+                <ListItem>No more language barriers</ListItem>
               </ul>
             </Tile>
             
-            <Tile title="📖 The Living Narrative" index={2}>
+            <Tile title="Stories That Talk Back" index={2}>
               <ul className="space-y-2">
-                <ListItem>Interactive literature that adapts to YOU</ListItem>
-                <ListItem>Readers influence the story path</ListItem>
-                <ListItem>Choose-your-own-adventure on steroids</ListItem>
+                <ListItem>Books where YOU choose what happens next</ListItem>
+                <ListItem>The story changes based on your choices</ListItem>
+                <ListItem>Like a game, but with words</ListItem>
               </ul>
             </Tile>
           </TileLayout>
@@ -306,18 +386,11 @@ function LiteratureSlide() {
         <SlideContent delay={0.5} className="mt-8">
           <Card highlight className="max-w-4xl mx-auto">
             <div className="flex items-start gap-4">
-              <motion.span 
-                className="text-3xl text-gold"
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-              >
-                ✍
-              </motion.span>
               <div>
-                <h4 className="font-serif text-lg font-semibold mb-2">The Key Insight</h4>
+                <h4 className="font-serif text-lg font-semibold mb-2">The Big Idea</h4>
                 <p className="text-sm leading-relaxed">
-                  AI doesn&apos;t write <em>for</em> you — it writes <em>with</em> you. 
-                  The author remains the architect of meaning; AI becomes the infinite canvas.
+                  AI does not write <em>for</em> you. It writes <em>with</em> you. 
+                  You are the boss. AI is the helper.
                 </p>
               </div>
             </div>
@@ -329,7 +402,7 @@ function LiteratureSlide() {
 }
 
 // ============================================================
-// SLIDE 5: THE INVISIBLE ALGORITHMIC CAGE
+// SLIDE 6: THE INVISIBLE ALGORITHMIC CAGE
 // ============================================================
 function AlgorithmicCageSlide() {
   return (
@@ -341,50 +414,44 @@ function AlgorithmicCageSlide() {
           transition={{ duration: 0.4 }}
           className="mb-3"
         >
-          <Tag variant="warning">Critical Analysis</Tag>
+          <Tag variant="warning">Be Careful</Tag>
         </motion.div>
 
         <SlideTitle>
-          The Invisible <span className="text-gold gold-underline">Algorithmic Cage</span>
+          The <span className="text-gold gold-underline">Algorithm</span> is Watching You
         </SlideTitle>
         <SlideSubtitle>
-          When the algorithm decides what you like before you&apos;ve even tried it
+          The app knows what you like. But does it know what is good for you?
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
           <div className="space-y-6">
             <WarningBox>
-              <h4 className="font-serif text-lg font-semibold mb-2">🔍 The Filter Bubble</h4>
+              <h4 className="font-serif text-lg font-semibold mb-2">The Trap of Seeing Only One Thing</h4>
               <p className="text-sm leading-relaxed">
-                Recommendation loops curate global taste to keep you <strong>engaged</strong> — not <strong>enlightened</strong>. 
-                Algorithmic feeds create echo chambers where diversity slowly suffocates.
+                The algorithm shows you more of what you already like. 
+                You never see new ideas, different opinions, or strange art. 
+                You live in a bubble and do not even know it.
               </p>
             </WarningBox>
 
             <WarningBox>
-              <h4 className="font-serif text-lg font-semibold mb-2">📉 The Threat of Flatness</h4>
+              <h4 className="font-serif text-lg font-semibold mb-2">Everything Starts to Look the Same</h4>
               <p className="text-sm leading-relaxed">
-                When AI optimizes for engagement, it optimizes for the <strong>average</strong>. 
-                Commercial art becomes predictable, repetitive cultural loops. 
-                The radical edges where innovation lives? They begin to erode.
+                When AI makes art for everyone, it makes the same kind of art. 
+                Safe, boring, and predictable. The weird, crazy, beautiful stuff 
+                gets pushed to the side.
               </p>
             </WarningBox>
 
             <Card highlight>
               <div className="flex items-start gap-4">
-                <motion.span 
-                  className="text-3xl text-gold"
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  ⚡
-                </motion.span>
                 <div>
-                  <h4 className="font-serif text-lg font-semibold mb-2">💥 Hacking the Matrix</h4>
-                  <p className="text-sm leading-relaxed">
-                    The urgent need for youth to become <HighlightText>algorithm tamers</HighlightText> — 
-                    actively seeking friction, oddities, underground art, and the unconventional. 
-                    <strong> Break the feed. Seek the strange. Celebrate the weird.</strong>
+                  <h4 className="font-serif text-lg font-semibold mb-2">How to Break Free</h4>
+                  <p className="text-sm leading-relaxed text-cream/90">
+                    You have the power. Search for strange music. Read weird books. 
+                    Watch things the algorithm does not recommend. 
+                    <strong> Your taste is your rebellion.</strong>
                   </p>
                 </div>
               </div>
@@ -397,7 +464,7 @@ function AlgorithmicCageSlide() {
 }
 
 // ============================================================
-// SLIDE 6: PROTECTING THE HUMAN CORE
+// SLIDE 7: PROTECTING THE HUMAN CORE
 // ============================================================
 function HumanCoreSlide() {
   return (
@@ -413,10 +480,10 @@ function HumanCoreSlide() {
         </motion.div>
 
         <SlideTitle>
-          Protecting the <span className="text-gold gold-underline">Human Core</span>
+          What Makes Us <span className="text-gold gold-underline">Special</span>
         </SlideTitle>
         <SlideSubtitle>
-          Why your messy, beautiful, imperfect humanity is worth more than any algorithm
+          Your mistakes, your weird ideas, your feelings - that is your superpower
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
@@ -424,21 +491,15 @@ function HumanCoreSlide() {
             left={
               <Card>
                 <div className="space-y-4">
-                  <motion.div 
-                    className="text-4xl text-gold mb-4"
-                    animate={{ rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  >
-                    ✧
-                  </motion.div>
-                  <h3 className="font-serif text-2xl font-semibold">The Beauty of the Mistake</h3>
+                  <h3 className="font-serif text-2xl font-semibold">Mistakes Are Beautiful</h3>
                   <p className="text-sm leading-relaxed mb-4">
-                    AI excels at smooth continuity; humans excel at <HighlightText>profound disruption</HighlightText>.
+                    AI makes things perfect every time. But real art? 
+                    It comes from <HighlightText>happy accidents</HighlightText>.
                   </p>
                   <ul className="space-y-2 text-sm">
-                    <ListItem>Art is born from human experience</ListItem>
-                    <ListItem>Beautiful flaws & unpredictable leaps</ListItem>
-                    <ListItem>The happy accident that changes everything</ListItem>
+                    <ListItem>A spilled paint drop becomes a masterpiece</ListItem>
+                    <ListItem>A wrong note becomes a new melody</ListItem>
+                    <ListItem>A typo becomes the best part of a poem</ListItem>
                   </ul>
                 </div>
               </Card>
@@ -446,21 +507,15 @@ function HumanCoreSlide() {
             right={
               <Card highlight>
                 <div className="space-y-4">
-                  <motion.div 
-                    className="text-4xl text-gold mb-4"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    ♛
-                  </motion.div>
-                  <h3 className="font-serif text-2xl font-semibold">Curation is the New Gold</h3>
-                  <p className="text-sm leading-relaxed mb-4">
-                    In a world of infinite synthetic content, <HighlightText>generation becomes cheap</HighlightText>.
+                  <h3 className="font-serif text-2xl font-semibold">Your Taste Matters</h3>
+                  <p className="text-sm leading-relaxed mb-4 text-cream/90">
+                    When everyone can make art with AI, the person who 
+                    <HighlightText>chooses what is good</HighlightText> becomes the hero.
                   </p>
-                  <ul className="space-y-2 text-sm">
-                    <ListItem>Human taste = ultimate premium</ListItem>
-                    <ListItem>Critical editing shapes cultural value</ListItem>
-                    <ListItem>Philosophical framing creates meaning</ListItem>
+                  <ul className="space-y-2 text-sm text-cream/90">
+                    <ListItem>The DJ who picks the right song</ListItem>
+                    <ListItem>The curator who says &ldquo;this matters&rdquo;</ListItem>
+                    <ListItem>The editor who makes it shine</ListItem>
                   </ul>
                 </div>
               </Card>
@@ -470,7 +525,7 @@ function HumanCoreSlide() {
 
         <SlideContent delay={0.5} className="mt-8">
           <Quote
-            text="In an age of infinite reproduction, the curatorial voice — the human who says 'this matters' — becomes the most valuable creative act of all."
+            text="In a world full of AI art, the person with good taste becomes the most valuable creator of all."
             author="Ted Chiang"
             source="Exhalation: Stories"
           />
@@ -481,7 +536,7 @@ function HumanCoreSlide() {
 }
 
 // ============================================================
-// SLIDE 7: CONCLUSION & CONVERSATION
+// SLIDE 8: CONCLUSION & CONVERSATION
 // ============================================================
 function ConclusionSlide() {
   return (
@@ -493,7 +548,7 @@ function ConclusionSlide() {
           transition={{ duration: 1 }}
         >
           <SlideTitle className="text-cream mb-8">
-            The <span className="text-gold">Paradigm</span>
+            The <span className="text-gold">Big Lesson</span>
           </SlideTitle>
 
           <SlideContent delay={0.3}>
@@ -512,15 +567,15 @@ function ConclusionSlide() {
               transition={{ delay: 0.7, duration: 0.7 }}
               className="font-serif text-2xl md:text-3xl lg:text-4xl text-cream leading-relaxed italic my-12"
             >
-              &ldquo;AI will not replace creators. <br />
+              &ldquo;AI will not replace creative people. <br />
               <motion.span 
                 className="text-gold font-semibold"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2 }}
               >
-                Creators who use AI
-              </motion.span> will replace those who don&apos;t.&rdquo;
+                Creative people who use AI
+              </motion.span> will replace those who do not.&rdquo;
             </motion.blockquote>
 
             <motion.div 
@@ -539,8 +594,8 @@ function ConclusionSlide() {
               className="mt-12 space-y-4"
             >
               <p className="text-cream/90 text-lg">
-                Let&apos;s code with empathy, read with critical depth, <br />
-                and create with <span className="text-gold font-semibold">absolute audacity</span>.
+                Use AI to help you. Do not let it replace you. <br />
+                Create with <span className="text-gold font-semibold">courage and heart</span>.
               </p>
             </motion.div>
 
@@ -565,7 +620,7 @@ function ConclusionSlide() {
                 animate={{ opacity: [0.5, 1, 0.5] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                Questions & Discussion ✦
+                Questions & Discussion
               </motion.p>
             </motion.div>
 
@@ -576,7 +631,7 @@ function ConclusionSlide() {
               className="mt-12"
             >
               <p className="text-cream/50 font-mono text-xs">
-                Abdoullah Ndao — Centre Guelwar — 2026
+                Abdoullah Ndao - Centre Guelwar - 2026
               </p>
             </motion.div>
           </SlideContent>
@@ -591,11 +646,12 @@ function ConclusionSlide() {
 // ============================================================
 export const slides = [
   { component: TitleSlide, title: "Title" },
-  { component: CreativeRivalSlide, title: "The Creative Rival" },
-  { component: YouthCultureSlide, title: "Youth Culture" },
-  { component: LiteratureSlide, title: "Literature & AI" },
-  { component: AlgorithmicCageSlide, title: "Algorithmic Cage" },
-  { component: HumanCoreSlide, title: "Protecting the Human Core" },
+  { component: WhatIsAISlide, title: "What is AI?" },
+  { component: CreativeRivalSlide, title: "Can AI Replace Us?" },
+  { component: YouthCultureSlide, title: "The AI Generation" },
+  { component: LiteratureSlide, title: "Writing with AI" },
+  { component: AlgorithmicCageSlide, title: "The Algorithm Trap" },
+  { component: HumanCoreSlide, title: "What Makes Us Special" },
   { component: ConclusionSlide, title: "Conclusion" }
 ]
 
@@ -605,81 +661,76 @@ export const slides = [
 export const speakerNotes: Record<number, string> = {
   0: `Welcome everyone!
 
-I am Abdoullah Ndao and today we're diving into something exciting — how AI is reshaping youth culture, literature, and creativity.
+My name is Abdoullah Ndao. Today we are going to talk about something very exciting: how computers that think, called Artificial Intelligence, are changing the way we make art, write stories, and create music.
 
-This isn't a boring tech talk. This is a conversation about the new cultural Renaissance happening right now.
+This is not a boring lesson. This is a fun conversation about the future.
 
-We'll switch between English and French as needed — because creativity knows no language barriers!
+We have people of all ages here today, from young to old. So I will keep things simple and clear.
 
-Fun fact: The slide you're looking at was partially designed with AI. Meta, right?`,
+Let us begin!`,
 
-  1: `Let's address the elephant in the room: Is AI going to replace human creativity?
+  1: `First, let us understand what AI and algorithms actually are.
 
-Short answer: No. Long answer: Also no, but with more nuance.
+AI stands for Artificial Intelligence. It is a computer program that learned from millions of books, articles, and websites. It finds patterns, then copies them. It does not have a brain. It does not feel anything. It just finds patterns and copies them.
 
-On the left, we have THE MACHINE — it's basically a very sophisticated pattern-matching machine. It's read more books than any human ever could, but it doesn't UNDERSTAND any of them. It's like that friend who quotes movies but has never actually felt emotions.
+Think of it like this: if you read 10,000 jokes about cats, you could write a cat joke too. AI does the same thing, but with millions of things at once.
 
-On the right, we have THE HUMAN — messy, emotional, beautiful. We create from lived experience, from trauma, from that weird dream we had about flying penguins.
+Algorithms are like recipes. Step-by-step instructions. Your TikTok feed uses an algorithm. YouTube uses one too. It watches what you like, then gives you more of the same.
 
-Key insight: AI combines and recombines. Humans CREATE from consciousness. That's the difference.`,
+The most important thing to remember: AI is a tool, like a pencil or a paintbrush. It does not have its own ideas. It copies what humans made before.`,
 
-  2: `Now let's talk about the generation growing up WITH AI as a creative tool.
+  2: `Now let us talk about the big question: Can AI replace human creativity?
 
-These aren't just digital natives — they're AI Natives. The generational leap is REAL.
+The answer is no. Here is why.
 
-A teenager in Dakar can now produce professional-quality music from their bedroom. A writer in Manila can instantly translate their novel into 50 languages. An artist in Medellín can create gallery-worthy digital art with just a phone.
+On one side, we have what AI can do: read millions of books in seconds, write poems that sound nice, draw pictures in any style. It is very impressive.
 
-AI removes the financial gatekeepers. No more "you need a $2000 software license." Just you, your device, and imagination.
+On the other side, we have what humans can do: feel emotions and express them, create something never seen before, make mistakes that become beautiful. AI cannot do these things.
 
-This is democratization of creativity on a global scale. And it's happening RIGHT NOW.`,
+AI copies. Humans imagine. That is the difference.`,
 
-  3: `Literature is being transformed — but NOT replaced.
+  3: `Now let us talk about young people and AI.
 
-Think of AI as your 24/7 creative sparring partner. It's like having a writing buddy who never sleeps, never gets tired, and has read every book ever written.
+Young people today are not just watching. They are making things. A kid in Dakar can make professional music from their bedroom. A teenager can write a book and translate it into 50 languages. An artist can make gallery art with just a phone.
 
-ERASING THE BLANK PAGE: Writer's block? AI helps you brainstorm character flaws, plot twists, and historical facts. It's like having a muse that actually shows up to work.
+Before, you needed money and expensive tools to be an artist. Now anyone with a phone can create.
 
-EXPANDING HORIZONS: A novel written in Wolof can be instantly accessible to readers in Tokyo. Translation barriers? Gone.
+And the best part? Stories from small towns and far-away places can now reach readers everywhere. No more gatekeepers.`,
 
-THE LIVING NARRATIVE: Interactive literature where YOU influence the story. Choose-your-own-adventure on steroids, powered by AI that adapts to your choices in real-time.
+  4: `Let us talk about books and writing with AI.
 
-Key insight: AI doesn't write FOR you — it writes WITH you. The author remains the architect of meaning.`,
+Have you ever stared at a blank page and not known what to write? That is called writer's block. AI can help with that. You ask it for ideas, and it gives you some. You ask it for a character, and it helps you build one.
 
-  4: `Now we need to talk about the invisible forces threatening creative freedom.
+AI can also translate your story into 50 languages instantly. A book written in Wolof can be read in Tokyo. A poem in French can be read in English.
 
-THE FILTER BUBBLE: You know that feeling when YouTube recommends the same type of video for 3 hours? That's the algorithm creating an echo chamber. You only see what it thinks you like — so you never discover what challenges you.
+And the coolest part? Interactive books where YOU choose what happens next. Like a game, but with words.
 
-THE THREAT OF FLATNESS: When AI optimizes for engagement, it optimizes for the AVERAGE. Everything becomes safe, predictable, commercial. The radical edges where true innovation lives? They start to erode.
+Remember: AI does not write for you. It writes with you. You are the boss. AI is the helper.`,
 
-But here's the good news: HACKING THE MATRIX. Youth must become algorithm tamers. Break the feed. Seek the strange. Celebrate the weird. Your taste is your rebellion.
+  5: `Now we need to talk about the algorithm, and why you should be careful.
 
-Remember: The algorithm works for YOU, not the other way around.`,
+You know when you watch one video on YouTube, and then it recommends the same type of video for three hours? That is the algorithm. It shows you more of what you already like. You never see new ideas, different opinions, or strange art. You live in a bubble and do not even know it.
 
-  5: `Finally, let's talk about what makes us irreplaceable.
+And when AI makes art for everyone, it makes the same kind of art. Safe, boring, and predictable. The weird, crazy, beautiful stuff gets pushed to the side.
 
-THE BEAUTY OF THE MISTAKE: AI excels at smooth continuity — but humans excel at profound disruption. Art is born from human experience, from beautiful flaws, from unpredictable emotional leaps.
+But you have the power! Search for strange music. Read weird books. Watch things the algorithm does not recommend. Your taste is your rebellion.`,
 
-Have you ever noticed how the best art often comes from pain, confusion, or those 3 AM existential crises? AI can't replicate that. It's too... organized.
+  6: `Finally, let us talk about what makes humans special.
 
-CURATION IS THE NEW GOLD: In a world of infinite synthetic content, generation becomes CHEAP. What becomes valuable? Human taste. Critical editing. Philosophical framing.
+AI makes things perfect every time. But real art? It comes from happy accidents. A spilled paint drop becomes a masterpiece. A wrong note becomes a new melody. A typo becomes the best part of a poem.
 
-Ted Chiang said it beautifully: the curatorial voice — the human who says "this matters" — becomes the most valuable creative act of all.
+Also, when everyone can make art with AI, the person who chooses what is good becomes the hero. The DJ who picks the right song. The curator who says "this matters." The editor who makes it shine.
 
-In other words: Your weird taste in music? That's your superpower.`,
+Your weird taste in music? Your strange ideas? Your messy, beautiful feelings? That is your superpower.`,
 
-  6: `To conclude:
+  7: `So what did we learn today?
 
-AI will not replace creators. Creators who use AI will replace those who don't.
+AI will not replace creative people. But creative people who use AI will replace those who do not.
 
-This isn't about choosing between technology and humanity — it's about amplifying our humanity through technology.
-
-Let's CODE with empathy — building tools that serve human flourishing.
-Let's READ with critical depth — questioning what algorithms feed us.
-Let's CREATE with absolute audacity — embracing the strange, the personal, the unoptimized.
+Use AI to help you. Do not let it replace you. Create with courage and heart.
 
 Remember: Your imperfections are your superpower. Your taste is your rebellion. Your creativity is irreplaceable.
 
-Thank you! Merci! Let's discuss.
+Thank you! Merci! Let us discuss.`
 
-And remember: The best algorithm is the one that helps you become MORE human, not less.`
 }
