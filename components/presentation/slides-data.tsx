@@ -17,7 +17,7 @@ import {
   CenteredContent,
   SplitLayout,
 } from "./slide-components"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 // ============================================================
 // SLIDE 1: TITRE & BIENVENUE
@@ -194,7 +194,132 @@ function WhatIsAISlide() {
 }
 
 // ============================================================
-// SLIDE 3: L'ILLUSION DU RIVAL CREATIF
+// SLIDE 3: L'ALGORITHME EN DETAIL
+// ============================================================
+function AlgorithmDeepDiveSlide() {
+  return (
+    <Slide variant="light">
+      <div className="w-full max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          className="mb-3"
+        >
+          <Tag>Comprendre</Tag>
+        </motion.div>
+        
+        <SlideTitle>
+          Comment Marche un <span className="text-gold gold-underline">Algorithme</span> ?
+        </SlideTitle>
+        <SlideSubtitle>
+          Le secret derriere ce que tu vois sur ton telephone
+        </SlideSubtitle>
+        
+        <SlideContent delay={0.3} className="mt-8">
+          <div className="grid md:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              <Card>
+                <div className="space-y-4">
+                  <h3 className="font-serif text-2xl font-semibold text-gold">Etape 1 : Il t&apos;observe</h3>
+                  <p className="text-sm leading-relaxed mb-3">
+                    L&apos;algorithme regarde tout ce que tu fais : les videos que tu regardes, 
+                    les likes que tu donnes, le temps que tu passes sur chaque post.
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground italic">
+                    Imagine un ami qui note tout ce que tu aimes, sauf que cet ami est un robot 
+                    et qu&apos;il ne dort jamais.
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <Card>
+                <div className="space-y-4">
+                  <h3 className="font-serif text-2xl font-semibold text-gold">Etape 2 : Il apprend</h3>
+                  <p className="text-sm leading-relaxed mb-3">
+                    Il compare tes gouts a ceux de millions d&apos;autres personnes. 
+                    &ldquo;Les gens qui aiment ca aiment aussi ca...&rdquo;
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground italic">
+                    C&apos;est comme quand ton ami te dit &ldquo;Si t&apos;aimes ce film, 
+                    tu vas adorer celui-la&rdquo;, mais en version robot.
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              <Card>
+                <div className="space-y-4">
+                  <h3 className="font-serif text-2xl font-semibold text-gold">Etape 3 : Il choisit pour toi</h3>
+                  <p className="text-sm leading-relaxed mb-3">
+                    L&apos;algorithme decide ce que tu vas voir en premier. 
+                    Ce qui est en haut de ton fil n&apos;est pas le plus important, 
+                    c&apos;est le plus &ldquo;engageant&rdquo; pour te garder scrolle.
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground italic">
+                    C&apos;est comme un magasin qui met les bonbons a hauteur des yeux d&apos;enfant.
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              <Card>
+                <div className="space-y-4">
+                  <h3 className="font-serif text-2xl font-semibold text-gold">Etape 4 : Il cree ta bulle</h3>
+                  <p className="text-sm leading-relaxed mb-3">
+                    Petit a petit, tu ne vois que ce que l&apos;algorithme pense que tu aimes. 
+                    Tu n&apos;es plus jamais expose a des idees differentes.
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground italic">
+                    Tu crois que tu choisis, mais c&apos;est lui qui choisit pour toi. 
+                    Comme un poisson dans un bocal qui croit que le bocal, c&apos;est le monde entier.
+                  </p>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </SlideContent>
+
+        <SlideContent delay={0.8} className="mt-8">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <p className="text-sm text-muted-foreground italic">
+              L&apos;algorithme ne travaille pas pour toi. Il travaille pour l&apos;application, 
+              qui veut que tu restes le plus longtemps possible.
+            </p>
+          </motion.div>
+        </SlideContent>
+      </div>
+    </Slide>
+  )
+}
+
+// ============================================================
+// SLIDE 4: L'ILLUSION DU RIVAL CREATIF
 // ============================================================
 function CreativeRivalSlide() {
   return (
@@ -265,7 +390,7 @@ function CreativeRivalSlide() {
 }
 
 // ============================================================
-// SLIDE 4: LA CULTURE JEUNE - DES NATIFS DIGITAUX AUX NATIFS IA
+// SLIDE 5: LA CULTURE JEUNE - LA GENERATION IA
 // ============================================================
 function YouthCultureSlide() {
   return (
@@ -323,7 +448,7 @@ function YouthCultureSlide() {
 
         <SlideContent delay={0.6} className="mt-8">
           <Quote
-            text="Les jeunes d&apos;aujourd&apos;hui ne se contentent pas de regarder la culture se faire. Ils la construisent, avec l&apos;IA comme boite a outils."
+            text="Les jeunes d'aujourd'hui ne se contentent pas de regarder la culture se faire. Ils la construisent, avec l'IA comme boite a outils."
             author="Rapport UNESCO sur la Culture Numerique, 2025"
           />
         </SlideContent>
@@ -333,7 +458,7 @@ function YouthCultureSlide() {
 }
 
 // ============================================================
-// SLIDE 5: LA LITTERATURE & L&apos;ECRIVAIN AUGMENTE
+// SLIDE 6: LA LITTERATURE
 // ============================================================
 function LiteratureSlide() {
   return (
@@ -402,7 +527,7 @@ function LiteratureSlide() {
 }
 
 // ============================================================
-// SLIDE 6: L&apos;ALGORITHME TE SURVEILLE
+// SLIDE 7: LE PIEGE DE L'ALGORITHME
 // ============================================================
 function AlgorithmicCageSlide() {
   return (
@@ -418,10 +543,10 @@ function AlgorithmicCageSlide() {
         </motion.div>
 
         <SlideTitle>
-          L&apos;<span className="text-gold gold-underline">Algorithme</span> Te Surveille
+          Le <span className="text-gold gold-underline">Piege</span> de l&apos;Algorithme
         </SlideTitle>
         <SlideSubtitle>
-          L&apos;application sait ce que tu aimes. Mais est-ce que elle sait ce qui est bon pour toi?
+          L&apos;application sait ce que tu aimes. Mais est-ce qu&apos;elle sait ce qui est bon pour toi?
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
@@ -463,7 +588,7 @@ function AlgorithmicCageSlide() {
 }
 
 // ============================================================
-// SLIDE 7: CE QUI NOUS REND SPECIAUX
+// SLIDE 8: CE QUI NOUS REND SPECIAUX
 // ============================================================
 function HumanCoreSlide() {
   return (
@@ -524,7 +649,7 @@ function HumanCoreSlide() {
 
         <SlideContent delay={0.5} className="mt-8">
           <Quote
-            text="Dans un monde plein d&apos;art fait par l&apos;IA, la personne avec un bon gout devient le createur le plus precieux de tous."
+            text="Dans un monde plein d'art fait par l'IA, la personne avec un bon gout devient le createur le plus precieux de tous."
             author="Ted Chiang"
             source="Exhalation: Nouvelles"
           />
@@ -535,7 +660,7 @@ function HumanCoreSlide() {
 }
 
 // ============================================================
-// SLIDE 8: CONCLUSION
+// SLIDE 9: CONCLUSION
 // ============================================================
 function ConclusionSlide() {
   return (
@@ -646,6 +771,7 @@ function ConclusionSlide() {
 export const slides = [
   { component: TitleSlide, title: "Titre" },
   { component: WhatIsAISlide, title: "Qu'est-ce que l'IA?" },
+  { component: AlgorithmDeepDiveSlide, title: "Comment marche un algorithme?" },
   { component: CreativeRivalSlide, title: "L'IA peut-elle nous remplacer?" },
   { component: YouthCultureSlide, title: "La Generation IA" },
   { component: LiteratureSlide, title: "Ecrire avec l'IA" },
@@ -678,7 +804,19 @@ Les algorithmes, c'est comme des recettes. Des etapes a suivre. Ton fil TikTok u
 
 La chose la plus importante a retenir: L'IA est un outil, comme un crayon ou un pinceau. Elle n'a pas d'idees a elle. Elle copie ce que les humains ont fait avant.`,
 
-  2: `Maintenant, parlons de la grande question: Est-ce que l'IA peut remplacer la creativite humaine?
+  2: `Maintenant, entrons dans le vif du sujet: comment un algorithme fonctionne exactement?
+
+ETAPE 1: Il t'observe. L'algorithme regarde tout ce que tu fais. Les videos que tu regardes, les likes que tu donnes, le temps que tu passes sur chaque post. Imagine un ami qui note tout ce que tu aimes, sauf que cet ami est un robot et qu'il ne dort jamais.
+
+ETAPE 2: Il apprend. Il compare tes gouts a ceux de millions d'autres personnes. "Les gens qui aiment ca aiment aussi ca..." C'est comme quand ton ami te dit "Si t'aimes ce film, tu vas adorer celui-la", mais en version robot.
+
+ETAPE 3: Il choisit pour toi. L'algorithme decide ce que tu vas voir en premier. Ce qui est en haut de ton fil n'est pas le plus important, c'est le plus "engageant" pour te garder scrolle. C'est comme un magasin qui met les bonbons a hauteur des yeux d'enfant.
+
+ETAPE 4: Il cree ta bulle. Petit a petit, tu ne vois que ce que l'algorithme pense que tu aimes. Tu crois que tu choisis, mais c'est lui qui choisit pour toi. Comme un poisson dans un bocal qui croit que le bocal, c'est le monde entier.
+
+L'algorithme ne travaille pas pour toi. Il travaille pour l'application, qui veut que tu restes le plus longtemps possible.`,
+
+  3: `Maintenant, parlons de la grande question: Est-ce que l'IA peut remplacer la creativite humaine?
 
 La reponse est non. Voici pourquoi.
 
@@ -688,7 +826,7 @@ De l'autre cote, on a ce que les humains peuvent faire: ressentir des emotions e
 
 L'IA copie. Les humains imaginent. Voila la difference.`,
 
-  3: `Maintenant, parlons des jeunes et de l'IA.
+  4: `Maintenant, parlons des jeunes et de l'IA.
 
 Les jeunes d'aujourd'hui ne se contentent plus de regarder. Ils font des choses. Un gamin a Dakar peut produire de la musique pro depuis sa chambre. Un adolescent peut ecrire un livre et le traduire en 50 langues. Un artiste peut faire de l'art de galerie avec juste son telephone.
 
@@ -696,7 +834,7 @@ Avant, il fallait de l'argent et des outils chers pour etre artiste. Maintenant 
 
 Et la meilleure partie? Les histoires des petites villes et des pays eloignes peuvent maintenant toucher des lecteurs partout. Fini les gardiens de la porte.`,
 
-  4: `Parlons des livres et de l'ecriture avec l'IA.
+  5: `Parlons des livres et de l'ecriture avec l'IA.
 
 Est-ce que tu as deja fixe une page blanche sans savoir quoi ecrire? Ca s'appelle le blocage de l'ecrivain. L'IA peut aider. Tu lui demandes des idees, et elle t'en donne. Tu lui demandes un personnage, et elle t'aide a le construire.
 
@@ -706,7 +844,7 @@ Et le truc le plus cool? Les livres interactifs ou TU choisis ce qui se passe en
 
 Retiens: L'IA n'ecrit pas pour toi. Elle ecrit avec toi. Tu es le patron. L'IA est l'assistant.`,
 
-  5: `Maintenant, on doit parler de l'algorithme, et pourquoi tu dois faire attention.
+  6: `Maintenant, on doit parler du piege de l'algorithme.
 
 Tu sais quand tu regardes une video sur YouTube, et apres il te recommande le meme type de video pendant 3 heures? C'est l'algorithme. Il te montre plus de ce que tu aimes deja. Tu ne vois jamais de nouvelles idees, d'opinions differentes, ou d'art bizarre. Tu vis dans une bulle sans le savoir.
 
@@ -714,7 +852,7 @@ Et quand l'IA fait de l'art pour tout le monde, elle fait le meme genre d'art. S
 
 Mais tu as le pouvoir! Cherche de la musique bizarre. Lis des livres etranges. Regarde des choses que l'algorithme ne te recommande pas. Ton gout est ta rebellion.`,
 
-  6: `Enfin, parlons de ce qui rend les humains speciaux.
+  7: `Enfin, parlons de ce qui rend les humains speciaux.
 
 L'IA fait les choses parfaitement a chaque fois. Mais le vrai art? Il vient des accidents heureux. Une tache de peinture devient un chef-d'oeuvre. Une note fausse devient une nouvelle melodie. Une faute d'orthographe devient la meilleure partie d'un poeme.
 
@@ -722,7 +860,7 @@ Aussi, quand tout le monde peut faire de l'art avec l'IA, la personne qui choisi
 
 Ton gout de musique bizarre? Tes idees etranges? Tes sentiments desordonnes et beaux? Ca, c'est ton superpouvoir.`,
 
-  7: `Alors qu'est-ce qu'on a appris aujourd'hui?
+  8: `Alors qu'est-ce qu'on a appris aujourd'hui?
 
 L'IA ne remplacera pas les createurs. Mais les createurs qui utilisent l'IA remplaceront ceux qui ne le font pas.
 
