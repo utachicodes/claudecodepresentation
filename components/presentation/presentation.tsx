@@ -62,10 +62,7 @@ export function Presentation() {
   const currentNotes = speakerNotes[currentSlide]
 
   return (
-    <div className="relative min-h-screen bg-background crt-flicker">
-      {/* Scanlines overlay */}
-      <div className="fixed inset-0 pointer-events-none z-50 scanlines" />
-      
+    <div className="relative min-h-screen bg-background">
       {/* Main slide content */}
       <AnimatePresence mode="wait">
         <CurrentSlideComponent key={currentSlide} />
@@ -78,34 +75,34 @@ export function Presentation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-background z-40 overflow-y-auto pixel-grid"
+            className="fixed inset-0 bg-background/95 backdrop-blur-sm z-40 overflow-y-auto"
           >
-            <div className="max-w-3xl mx-auto p-8">
-              <div className="flex items-center justify-between mb-8 border-b-3 border-primary pb-4">
-                <h2 className="font-pixel text-3xl text-primary">SUMMARY</h2>
+            <div className="max-w-3xl mx-auto p-8 pt-20">
+              <div className="flex items-center justify-between mb-8 border-b border-border pb-6">
+                <h2 className="font-serif text-3xl font-bold">Contents</h2>
                 <button 
                   onClick={() => setShowNav(false)}
-                  className="font-pixel text-lg text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                 >
                   [ESC]
                 </button>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 {slides.map((slide, index) => (
                   <motion.button
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.015 }}
+                    transition={{ delay: index * 0.03 }}
                     onClick={() => goToSlide(index)}
-                    className={`w-full text-left p-4 font-pixel text-lg border-3 transition-all ${
+                    className={`w-full text-left p-4 text-base rounded-lg transition-all ${
                       index === currentSlide
-                        ? "border-primary text-primary bg-primary/10"
-                        : "border-transparent text-foreground hover:border-primary hover:text-primary hover:bg-card"
+                        ? "bg-gold/10 text-gold font-medium"
+                        : "text-foreground hover:bg-muted"
                     }`}
                   >
-                    <span className="text-muted-foreground mr-6">
-                      {String(index + 1).padStart(2, "0")}.
+                    <span className="text-muted-foreground mr-4 font-mono text-sm">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
                     {slide.title}
                   </motion.button>
@@ -123,25 +120,25 @@ export function Presentation() {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.15 }}
-            className="fixed top-0 right-0 w-full max-w-md h-full bg-card border-l-3 border-primary z-40 overflow-y-auto"
+            transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
+            className="fixed top-0 right-0 w-full max-w-md h-full bg-card border-l border-border z-40 overflow-y-auto shadow-2xl"
           >
-            <div className="sticky top-0 bg-card border-b-3 border-primary p-4 flex items-center justify-between">
-              <span className="font-pixel text-xl text-primary">NOTES</span>
+            <div className="sticky top-0 bg-card border-b border-border p-4 flex items-center justify-between">
+              <span className="font-serif text-xl font-semibold">Speaker Notes</span>
               <button 
                 onClick={() => setShowNotes(false)}
-                className="font-pixel text-lg text-muted-foreground hover:text-primary"
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm"
               >
                 [X]
               </button>
             </div>
             <div className="p-6">
-              <p className="font-pixel text-sm text-muted-foreground mb-6 pb-4 border-b border-border">
+              <p className="text-sm text-muted-foreground mb-6 pb-4 border-b border-border font-mono">
                 {String(currentSlide + 1).padStart(2, "0")}. {slides[currentSlide].title}
               </p>
               <div className="space-y-4">
                 {currentNotes.split('\n\n').map((paragraph, i) => (
-                  <p key={i} className="text-sm leading-relaxed text-foreground">
+                  <p key={i} className="text-sm leading-relaxed text-foreground/80">
                     {paragraph}
                   </p>
                 ))}
@@ -153,49 +150,45 @@ export function Presentation() {
 
       {/* Bottom navigation bar */}
       <motion.div 
-        initial={{ y: 100 }}
+        initial={{ y: 80 }}
         animate={{ y: 0 }}
-        transition={{ delay: 0.2, duration: 0.2 }}
-        className="fixed bottom-0 left-0 right-0 border-t-3 border-primary bg-card/95 backdrop-blur p-4 z-30"
+        transition={{ delay: 0.3, duration: 0.4, ease: "easeOut" }}
+        className="fixed bottom-0 left-0 right-0 border-t border-border bg-card/90 backdrop-blur-md z-30"
       >
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
           {/* Left: Navigation buttons */}
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowNav(true)}
-              className="pixel-btn px-4 py-2 font-pixel text-base text-primary"
+              className="nav-btn"
             >
-              MENU
+              Contents
             </button>
             <button
               onClick={() => setShowNotes(!showNotes)}
-              className={`px-4 py-2 font-pixel text-base transition-colors ${
-                showNotes 
-                  ? 'bg-primary text-background' 
-                  : 'pixel-btn text-primary'
-              }`}
+              className={`nav-btn ${showNotes ? 'bg-foreground text-background border-foreground' : ''}`}
             >
-              NOTES
+              Notes
             </button>
           </div>
 
           {/* Center: Progress bar */}
           <div className="flex-1 max-w-xl mx-8 hidden md:block">
-            <div className="pixel-progress">
+            <div className="progress-elegant">
               <div 
-                className="pixel-progress-fill"
+                className="progress-elegant-fill"
                 style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
               />
             </div>
-            <div className="flex justify-between mt-2 font-pixel text-sm text-muted-foreground">
-              <span>{slides[currentSlide].title}</span>
-              <span>{currentSlide + 1}/{slides.length}</span>
+            <div className="flex justify-between mt-2">
+              <span className="slide-number">{slides[currentSlide].title}</span>
+              <span className="slide-number">{currentSlide + 1} / {slides.length}</span>
             </div>
           </div>
 
           {/* Mobile progress */}
-          <div className="md:hidden font-pixel text-lg text-primary">
-            {String(currentSlide + 1).padStart(2, "0")}/{String(slides.length).padStart(2, "0")}
+          <div className="md:hidden font-mono text-sm text-muted-foreground">
+            {String(currentSlide + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
           </div>
 
           {/* Right: Prev/Next */}
@@ -203,16 +196,16 @@ export function Presentation() {
             <button
               onClick={prevSlide}
               disabled={currentSlide === 0}
-              className="pixel-btn px-4 py-2 font-pixel text-base text-primary disabled:opacity-30 disabled:cursor-not-allowed"
+              className="nav-btn disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              {"<"} PREV
+              ← Prev
             </button>
             <button
               onClick={nextSlide}
               disabled={currentSlide === slides.length - 1}
-              className="pixel-btn px-4 py-2 font-pixel text-base text-primary disabled:opacity-30 disabled:cursor-not-allowed"
+              className="nav-btn disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              NEXT {">"}
+              Next →
             </button>
           </div>
         </div>

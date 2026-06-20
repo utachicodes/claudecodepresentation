@@ -1,7 +1,7 @@
 "use client"
 
-import { motion, type Variants, AnimatePresence } from "framer-motion"
-import { ReactNode, useState, useEffect } from "react"
+import { motion, type Variants } from "framer-motion"
+import { ReactNode } from "react"
 
 export const fadeIn: Variants = {
   initial: { opacity: 0 },
@@ -18,9 +18,12 @@ export const slideUp: Variants = {
 interface SlideProps {
   children: ReactNode
   className?: string
+  variant?: "light" | "dark"
 }
 
-export function Slide({ children, className = "" }: SlideProps) {
+export function Slide({ children, className = "", variant = "light" }: SlideProps) {
+  const bgClass = variant === "dark" ? "bg-gradient-slate text-cream" : "bg-gradient-cream text-slate"
+
   return (
     <motion.div
       initial="initial"
@@ -28,64 +31,24 @@ export function Slide({ children, className = "" }: SlideProps) {
       exit="exit"
       variants={{
         initial: { opacity: 0 },
-        animate: { opacity: 1, transition: { duration: 0.2, staggerChildren: 0.06 } },
-        exit: { opacity: 0, transition: { duration: 0.15 } }
+        animate: { opacity: 1, transition: { duration: 0.4, staggerChildren: 0.08 } },
+        exit: { opacity: 0, transition: { duration: 0.2 } }
       }}
-      className={`min-h-screen w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 py-20 pixel-grid ${className}`}
+      className={`min-h-screen w-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 py-20 relative grain-texture ${bgClass} ${className}`}
     >
-      {children}
+      <div className="relative z-10 w-full flex flex-col items-center">
+        {children}
+      </div>
     </motion.div>
   )
-}
-
-export function ScrambleText({ text, delay = 0, className = "" }: { text: string; delay?: number; className?: string }) {
-  const [displayText, setDisplayText] = useState("")
-  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*"
-
-  useEffect(() => {
-    let iteration = 0
-    let interval: NodeJS.Timeout
-
-    const startAnimation = () => {
-      interval = setInterval(() => {
-        setDisplayText(
-          text
-            .split("")
-            .map((char, index) => {
-              if (char === " ") return " "
-              if (index < iteration) {
-                return text[index]
-              }
-              return characters[Math.floor(Math.random() * characters.length)]
-            })
-            .join("")
-        )
-
-        if (iteration >= text.length) {
-          clearInterval(interval)
-        }
-
-        iteration += 1 / 3
-      }, 30)
-    }
-
-    const timeout = setTimeout(startAnimation, delay * 1000)
-
-    return () => {
-      clearInterval(interval)
-      clearTimeout(timeout)
-    }
-  }, [text, delay])
-
-  return <span className={className}>{displayText || text.split("").map(() => " ").join("")}</span>
 }
 
 export function SlideTitle({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <motion.h1
       variants={slideUp}
-      transition={{ duration: 0.3 }}
-      className={`font-pixel text-5xl md:text-7xl lg:text-8xl text-primary leading-none tracking-wide text-glow ${className}`}
+      transition={{ duration: 0.4 }}
+      className={`font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight ${className}`}
     >
       {children}
     </motion.h1>
@@ -96,8 +59,8 @@ export function SlideSubtitle({ children, className = "" }: { children: ReactNod
   return (
     <motion.p
       variants={slideUp}
-      transition={{ duration: 0.3, delay: 0.05 }}
-      className={`text-base md:text-lg text-muted-foreground mt-6 max-w-3xl leading-relaxed ${className}`}
+      transition={{ duration: 0.4, delay: 0.05 }}
+      className={`text-base md:text-lg mt-4 max-w-3xl leading-relaxed opacity-80 ${className}`}
     >
       {children}
     </motion.p>
@@ -116,94 +79,8 @@ export function SlideContent({
   return (
     <motion.div
       variants={slideUp}
-      transition={{ duration: 0.3, delay }}
+      transition={{ duration: 0.4, delay }}
       className={className}
-    >
-      {children}
-    </motion.div>
-  )
-}
-
-export function Terminal({ children, title = "~/claude" }: { children: ReactNode; title?: string }) {
-  return (
-    <motion.div
-      variants={slideUp}
-      transition={{ duration: 0.3 }}
-      className="w-full max-w-4xl terminal-chrome"
-    >
-      <div className="flex items-center gap-3 px-4 py-3 border-b-3 border-border">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 bg-primary" />
-          <div className="w-3 h-3 bg-muted-foreground" />
-          <div className="w-3 h-3 bg-muted" />
-        </div>
-        <span className="font-pixel text-lg text-primary ml-2">{title}</span>
-      </div>
-      <div className="p-6 text-sm">
-        {children}
-      </div>
-    </motion.div>
-  )
-}
-
-export function TerminalLine({ 
-  prompt = ">", 
-  command, 
-  output,
-  delay = 0 
-}: { 
-  prompt?: string
-  command: string
-  output?: string | string[]
-  delay?: number
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay, duration: 0.2 }}
-      className="mb-3"
-    >
-      <div className="flex items-center gap-3">
-        <span className="text-primary font-pixel text-xl">{prompt}</span>
-        <span className="text-foreground">{command}</span>
-        <motion.span 
-          className="w-3 h-5 bg-primary ml-1"
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.6, repeat: Infinity }}
-        />
-      </div>
-      {output && (
-        <div className="text-muted-foreground mt-2 pl-6 text-sm">
-          {Array.isArray(output) ? output.map((line, i) => (
-            <div key={i}>{line}</div>
-          )) : output}
-        </div>
-      )}
-    </motion.div>
-  )
-}
-
-export function PixelCard({ 
-  children, 
-  className = "",
-  variant = "default"
-}: { 
-  children: ReactNode
-  className?: string
-  variant?: "default" | "orange" | "muted"
-}) {
-  const styles = {
-    default: "pixel-box-white",
-    orange: "pixel-box",
-    muted: "border-3 border-muted"
-  }[variant]
-
-  return (
-    <motion.div
-      variants={slideUp}
-      whileHover={{ scale: 1.02, transition: { duration: 0.1 } }}
-      className={`p-6 bg-card ${styles} ${className}`}
     >
       {children}
     </motion.div>
@@ -222,7 +99,7 @@ export function Card({
   return (
     <motion.div
       variants={slideUp}
-      className={`p-6 bg-card ${highlight ? "pixel-box" : "pixel-box-white"} ${className}`}
+      className={`p-6 rounded-xl ${highlight ? "bg-slate text-cream" : "card-elevated"} ${className}`}
     >
       {children}
     </motion.div>
@@ -232,48 +109,28 @@ export function Card({
 export function GridCard({ 
   title, 
   description, 
-  icon,
-  index = 0 
+  index = 0,
+  icon 
 }: { 
   title: string
   description: string
-  icon?: string
-  index?: number 
+  index?: number
+  icon?: ReactNode
 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2, delay: index * 0.05 }}
-      whileHover={{ y: -4, transition: { duration: 0.1 } }}
-      className="pixel-box p-5 bg-card group cursor-default"
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      className="card-elevated p-6 rounded-xl group cursor-default"
     >
       {icon && (
-        <div className="font-pixel text-3xl text-primary mb-3">{icon}</div>
+        <div className="text-gold mb-4">{icon}</div>
       )}
-      <h3 className="font-pixel text-xl text-foreground mb-2 group-hover:text-primary transition-colors">{title}</h3>
+      <h3 className="font-serif text-xl font-semibold mb-2 group-hover:text-gold transition-colors">{title}</h3>
       <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
     </motion.div>
-  )
-}
-
-export function ListItem({ 
-  children, 
-  index = 0
-}: { 
-  children: ReactNode
-  index?: number
-}) {
-  return (
-    <motion.li
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.2, delay: index * 0.05 }}
-      className="flex items-start gap-4 text-foreground py-2"
-    >
-      <span className="text-primary font-pixel text-2xl leading-none">{">"}</span>
-      <span className="leading-relaxed">{children}</span>
-    </motion.li>
   )
 }
 
@@ -281,14 +138,15 @@ export function Quote({ text, author, source }: { text: string; author: string; 
   return (
     <motion.blockquote
       variants={slideUp}
-      className="border-l-4 border-primary pl-8 py-4 my-8 max-w-3xl"
+      className="my-8 max-w-3xl relative pl-8 border-l-2 border-gold"
     >
-      <p className="font-pixel text-2xl md:text-3xl text-foreground leading-relaxed">
-        &quot;{text}&quot;
+      <span className="quote-mark absolute -left-2 -top-4">&ldquo;</span>
+      <p className="font-serif text-xl md:text-2xl leading-relaxed italic">
+        {text}
       </p>
-      <footer className="mt-6 text-muted-foreground text-sm">
-        <span className="text-primary font-pixel text-lg">-- {author}</span>
-        {source && <span className="block mt-1 text-xs">{source}</span>}
+      <footer className="mt-6 text-sm">
+        <span className="font-semibold text-gold">— {author}</span>
+        {source && <span className="block mt-1 text-muted-foreground text-xs">{source}</span>}
       </footer>
     </motion.blockquote>
   )
@@ -304,30 +162,28 @@ export function CompareBox({
   type?: "neutral" | "good" | "bad"
 }) {
   const config = {
-    neutral: { border: "pixel-box-white", marker: "-", color: "text-foreground" },
-    good: { border: "pixel-box", marker: "+", color: "text-primary" },
-    bad: { border: "border-3 border-muted", marker: "x", color: "text-muted-foreground" }
+    neutral: { bg: "bg-card", border: "border-border", marker: "→", titleColor: "text-foreground" },
+    good: { bg: "bg-slate text-cream", border: "border-slate", marker: "✦", titleColor: "text-gold" },
+    bad: { bg: "bg-card", border: "border-destructive/20", marker: "⚠", titleColor: "text-destructive" }
   }[type]
 
   return (
     <motion.div
       variants={slideUp}
-      className={`${config.border} p-6 bg-card`}
+      className={`${config.bg} ${config.border} border p-6 rounded-xl`}
     >
-      <h3 className={`font-pixel text-2xl mb-5 ${type === 'good' ? 'text-primary' : 'text-foreground'}`}>{title}</h3>
+      <h3 className={`font-serif text-xl font-semibold mb-5 ${config.titleColor}`}>{title}</h3>
       <ul className="space-y-3">
         {items.map((item, i) => (
           <motion.li 
             key={i} 
-            className="flex items-start gap-4 text-sm"
+            className="flex items-start gap-3 text-sm"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.15 + i * 0.04 }}
+            transition={{ delay: 0.15 + i * 0.05 }}
           >
-            <span className={`font-pixel text-xl ${config.color}`}>
-              [{config.marker}]
-            </span>
-            <span className={type === 'bad' ? 'text-muted-foreground line-through' : 'text-foreground'}>{item}</span>
+            <span className={`text-gold mt-0.5`}>{config.marker}</span>
+            <span className={type === 'bad' ? 'text-muted-foreground' : ''}>{item}</span>
           </motion.li>
         ))}
       </ul>
@@ -338,19 +194,12 @@ export function CompareBox({
 export function Stat({ value, label, index = 0 }: { value: string; label: string; index?: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
+      initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.2, delay: index * 0.08 }}
-      className="text-center p-6 pixel-box bg-card"
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="text-center p-6 card-elevated rounded-xl"
     >
-      <motion.div 
-        className="font-pixel text-5xl md:text-6xl text-primary mb-3"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 + index * 0.1 }}
-      >
-        {value}
-      </motion.div>
+      <div className="font-serif text-4xl md:text-5xl font-bold text-gold mb-2">{value}</div>
       <div className="text-muted-foreground text-sm uppercase tracking-wider">{label}</div>
     </motion.div>
   )
@@ -369,17 +218,17 @@ export function Step({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -30 }}
+      initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.2, delay: index * 0.06 }}
-      className="flex items-start gap-6"
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+      className="flex items-start gap-5"
     >
-      <div className="w-14 h-14 pixel-box flex items-center justify-center flex-shrink-0 font-pixel text-3xl text-primary bg-card">
-        {number}
+      <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+        <span className="font-mono text-sm font-semibold text-gold">{number}</span>
       </div>
-      <div className="pt-2">
-        <h3 className="font-pixel text-xl text-foreground">{title}</h3>
-        <p className="text-muted-foreground text-sm mt-2 leading-relaxed">{description}</p>
+      <div className="pt-1">
+        <h3 className="font-serif text-lg font-semibold">{title}</h3>
+        <p className="text-muted-foreground text-sm mt-1 leading-relaxed">{description}</p>
       </div>
     </motion.div>
   )
@@ -389,12 +238,12 @@ export function CodeBlock({ children, filename }: { children: string; filename?:
   return (
     <motion.div variants={slideUp} className="w-full max-w-3xl">
       {filename && (
-        <div className="border-3 border-b-0 border-primary px-4 py-2 font-pixel text-base text-primary bg-card">
+        <div className="border border-b-0 border-border rounded-t-xl px-4 py-2 font-mono text-xs text-muted-foreground bg-card">
           {filename}
         </div>
       )}
-      <pre className={`border-3 border-primary p-6 overflow-x-auto bg-card/50`}>
-        <code className="text-sm text-foreground whitespace-pre-wrap">
+      <pre className={`border border-border p-6 overflow-x-auto bg-slate text-cream rounded-xl ${filename ? 'rounded-t-none' : ''}`}>
+        <code className="text-sm font-mono whitespace-pre-wrap">
           {children}
         </code>
       </pre>
@@ -402,36 +251,16 @@ export function CodeBlock({ children, filename }: { children: string; filename?:
   )
 }
 
-export function Tag({ children, active = false }: { children: ReactNode; active?: boolean }) {
+export function Tag({ children, active = false, variant = "default" }: { children: ReactNode; active?: boolean; variant?: "default" | "warning" }) {
+  const styles = variant === "warning" 
+    ? "bg-destructive/10 text-destructive border border-destructive/20"
+    : active 
+      ? 'bg-gold text-slate' 
+      : 'bg-muted text-muted-foreground'
   return (
-    <span className={`inline-block px-4 py-2 font-pixel text-base ${active ? 'bg-primary text-background' : 'pixel-box-white text-foreground'}`}>
+    <span className={`inline-block px-4 py-2 text-xs font-medium uppercase tracking-wider rounded-full ${styles}`}>
       {children}
     </span>
-  )
-}
-
-export function PixelButton({ 
-  children, 
-  onClick,
-  variant = "primary"
-}: { 
-  children: ReactNode
-  onClick?: () => void
-  variant?: "primary" | "secondary"
-}) {
-  return (
-    <motion.button
-      onClick={onClick}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={`font-pixel text-lg px-6 py-3 ${
-        variant === "primary" 
-          ? "pixel-btn text-primary hover:bg-primary hover:text-background" 
-          : "pixel-box-white text-foreground hover:bg-foreground hover:text-background"
-      } transition-colors`}
-    >
-      {children}
-    </motion.button>
   )
 }
 
@@ -441,27 +270,112 @@ export function SectionDivider({ label }: { label: string }) {
       variants={slideUp}
       className="flex items-center gap-4 w-full max-w-2xl my-8"
     >
-      <div className="flex-1 h-1 bg-primary" />
-      <span className="font-pixel text-xl text-primary px-4">{label}</span>
-      <div className="flex-1 h-1 bg-primary" />
+      <div className="flex-1 decorative-line" />
+      <span className="text-sm font-medium uppercase tracking-widest text-gold px-4">{label}</span>
+      <div className="flex-1 decorative-line" />
     </motion.div>
   )
 }
 
-export function PixelIcon({ icon }: { icon: string }) {
+export function ListItem({ 
+  children, 
+  index = 0
+}: { 
+  children: ReactNode
+  index?: number
+}) {
   return (
-    <span className="font-pixel text-4xl text-primary">{icon}</span>
+    <motion.li
+      initial={{ opacity: 0, x: -15 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.06 }}
+      className="flex items-start gap-4 py-2"
+    >
+      <span className="text-gold mt-1">✦</span>
+      <span className="leading-relaxed">{children}</span>
+    </motion.li>
   )
 }
 
-export function Badge({ children, variant = "default" }: { children: ReactNode; variant?: "default" | "orange" }) {
+export function TileLayout({ 
+  children, 
+  columns = 3 
+}: { 
+  children: ReactNode
+  columns?: 2 | 3
+}) {
+  const gridClass = columns === 3 ? "grid md:grid-cols-3 gap-6" : "grid md:grid-cols-2 gap-6"
   return (
-    <span className={`inline-block px-3 py-1 text-xs uppercase tracking-wider ${
-      variant === "orange" 
-        ? "bg-primary text-background" 
-        : "bg-muted text-muted-foreground"
-    }`}>
+    <div className={gridClass}>
       {children}
+    </div>
+  )
+}
+
+export function Tile({ 
+  title, 
+  children, 
+  index = 0 
+}: { 
+  title: string
+  children: ReactNode
+  index?: number
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="card-elevated p-6 rounded-xl"
+    >
+      <h3 className="font-serif text-xl font-semibold mb-3 text-gold">{title}</h3>
+      <div className="text-sm leading-relaxed opacity-80">{children}</div>
+    </motion.div>
+  )
+}
+
+export function WarningBox({ children }: { children: ReactNode }) {
+  return (
+    <motion.div
+      variants={slideUp}
+      className="bg-destructive/5 border border-destructive/20 p-6 rounded-xl"
+    >
+      <div className="flex items-start gap-3">
+        <span className="text-destructive text-lg">⚠</span>
+        <div className="text-sm leading-relaxed">{children}</div>
+      </div>
+    </motion.div>
+  )
+}
+
+export function HighlightText({ children }: { children: ReactNode }) {
+  return (
+    <span className="relative inline-block">
+      <span className="relative z-10">{children}</span>
+      <span className="absolute bottom-0 left-0 w-full h-3 bg-gold/20 -z-0" />
     </span>
+  )
+}
+
+export function CenteredContent({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <div className={`text-center max-w-4xl ${className}`}>
+      {children}
+    </div>
+  )
+}
+
+export function SplitLayout({ 
+  left, 
+  right 
+}: { 
+  left: ReactNode
+  right: ReactNode
+}) {
+  return (
+    <div className="grid md:grid-cols-2 gap-8 w-full max-w-6xl">
+      <div>{left}</div>
+      <div>{right}</div>
+    </div>
   )
 }

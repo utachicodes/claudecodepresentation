@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
-import { JetBrains_Mono, VT323 } from 'next/font/google'
+import { Inter, Playfair_Display, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
-const vt323 = VT323({ weight: "400", subsets: ["latin"], variable: "--font-pixel" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" })
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 export const metadata: Metadata = {
-  title: 'Claude AI - Discovery, Capabilities & Demonstration',
-  description: 'Presentation on Claude AI and software development principles with AI',
+  title: 'AI & Creativity: The New Cultural Renaissance?',
+  description: 'Artificial Intelligence & Creativity: The New Cultural Renaissance? - Presentation on AI, Youth, Culture & Literature',
   generator: 'v0.app',
 }
 
@@ -18,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-background ${jetbrainsMono.variable} ${vt323.variable}`}>
-      <body className="font-mono antialiased bg-background selection:bg-primary selection:text-background">
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable}`}>
+      <body className="font-sans antialiased bg-background text-foreground selection:bg-gold selection:text-slate">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
