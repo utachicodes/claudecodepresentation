@@ -118,7 +118,7 @@ export function Card({
     <motion.div
       variants={slideUp}
       whileHover={{ y: -2, transition: { duration: 0.2 } }}
-      className={`p-6 rounded-xl ${highlight ? "bg-slate text-cream" : "card-elevated"} ${className}`}
+      className={`p-6 rounded-xl ${highlight ? "bg-gold/10 border border-gold" : "card-elevated"} ${className}`}
     >
       {children}
     </motion.div>
@@ -182,7 +182,7 @@ export function CompareBox({
 }) {
   const config = {
     neutral: { bg: "bg-card", border: "border-border", marker: "→", titleColor: "text-foreground" },
-    good: { bg: "bg-slate text-cream", border: "border-slate", marker: "✦", titleColor: "text-gold" },
+    good: { bg: "bg-gold/10 border border-gold", border: "border-gold", marker: "✦", titleColor: "text-gold" },
     bad: { bg: "bg-card", border: "border-destructive/20", marker: "⚠", titleColor: "text-destructive" }
   }[type]
 

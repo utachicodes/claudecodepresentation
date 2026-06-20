@@ -20,7 +20,7 @@ import {
 import { motion } from "framer-motion"
 
 // ============================================================
-// SLIDE 1: TITLE & WELCOMING
+// SLIDE 1: TITRE & BIENVENUE
 // ============================================================
 function TitleSlide() {
   return (
@@ -47,14 +47,14 @@ function TitleSlide() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              Artificial Intelligence
+              Intelligence Artificielle
             </motion.span>{" "}
             <motion.span
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
-              & Creativity
+              & Creativite
             </motion.span>
           </SlideTitle>
           
@@ -73,7 +73,7 @@ function TitleSlide() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.6 }}
           >
-            A New Age of Art and Ideas?
+            Une Nouvelle Renaissance Artistique?
           </motion.h2>
 
           <motion.p 
@@ -82,7 +82,7 @@ function TitleSlide() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4 }}
           >
-            L&apos;IA au service de la jeunesse, de la culture et de la littérature.
+            L&apos;IA au service de la jeunesse, de la culture et de la litterature.
           </motion.p>
 
           <motion.div 
@@ -105,7 +105,7 @@ function TitleSlide() {
               animate={{ opacity: [0.4, 1, 0.4] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              Press [SPACE] to begin
+              Appuyez sur [ESPACE] pour commencer
             </motion.p>
           </motion.div>
         </motion.div>
@@ -115,7 +115,7 @@ function TitleSlide() {
 }
 
 // ============================================================
-// SLIDE 2: WHAT IS AI & ALGORITHMS?
+// SLIDE 2: QU'EST-CE QUE L'IA ?
 // ============================================================
 function WhatIsAISlide() {
   return (
@@ -131,10 +131,10 @@ function WhatIsAISlide() {
         </motion.div>
         
         <SlideTitle>
-          What is <span className="text-gold gold-underline">AI</span>?
+          Qu&apos;est-ce que <span className="text-gold gold-underline">l&apos;IA</span> ?
         </SlideTitle>
         <SlideSubtitle>
-          Let us start with the basics. What are we actually talking about?
+          Avant de parler de creativite, comprenons d&apos;abord de quoi on parle.
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
@@ -142,37 +142,37 @@ function WhatIsAISlide() {
             left={
               <Card>
                 <div className="space-y-4">
-                  <h3 className="font-serif text-2xl font-semibold">Artificial Intelligence (AI)</h3>
+                  <h3 className="font-serif text-2xl font-semibold">L&apos;Intelligence Artificielle (IA)</h3>
                   <p className="text-sm leading-relaxed mb-3">
-                    AI is a computer program that learned from millions of books, 
-                    articles, and websites written by humans.
+                    L&apos;IA, c&apos;est un programme d&apos;ordinateur qui a lu des millions de livres, 
+                    d&apos;articles et de sites web ecrits par des humains.
                   </p>
                   <p className="text-sm leading-relaxed mb-3">
-                    It does not have a brain. It does not feel anything. 
-                    It is very good at finding patterns and copying them.
+                    Elle n&apos;a pas de cerveau. Elle ne ressent rien. 
+                    Elle est tres douee pour trouver des patterns et les copier.
                   </p>
                   <p className="text-sm leading-relaxed text-muted-foreground">
-                    Example: You type &ldquo;Tell me a joke about cats&rdquo; and AI writes one 
-                    because it has seen thousands of cat jokes before.
+                    Exemple : Vous tapez &ldquo;Raconte-moi une blague sur les chats&rdquo; 
+                    et l&apos;IA en invente une, car elle en a deja lu des milliers.
                   </p>
                 </div>
               </Card>
             }
             right={
-              <Card highlight>
+              <Card>
                 <div className="space-y-4">
-                  <h3 className="font-serif text-2xl font-semibold">Algorithms</h3>
+                  <h3 className="font-serif text-2xl font-semibold text-gold">Les Algorithmes</h3>
                   <p className="text-sm leading-relaxed mb-3">
-                    An algorithm is simply a recipe. A list of steps to follow, like 
-                    &ldquo;First do this, then do that.&rdquo;
+                    Un algorithme, c&apos;est simplement une recette. 
+                    Une liste d&apos;etapes a suivre, comme &ldquo;D&apos;abord fais ca, puis fais ca&rdquo;.
                   </p>
                   <p className="text-sm leading-relaxed mb-3">
-                    Your TikTok feed, YouTube recommendations, Spotify playlists, 
-                    they all use algorithms to decide what to show you.
+                    Ton fil TikTok, les videos YouTube, les playlists Spotify, 
+                    tout ca utilise des algorithmes pour decider ce qu&apos;on te montre.
                   </p>
-                  <p className="text-sm leading-relaxed text-cream/90">
-                    The algorithm watches what you like, then gives you more 
-                    of the same thing. That is why you keep watching!
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    L&apos;algorithme regarde ce que tu aimes, puis te donne plus de la meme chose. 
+                    C&apos;est pour ca que tu ne t&apos;arretes jamais!
                   </p>
                 </div>
               </Card>
@@ -183,8 +183,8 @@ function WhatIsAISlide() {
         <SlideContent delay={0.6} className="mt-8">
           <Card className="max-w-3xl mx-auto">
             <p className="text-sm leading-relaxed text-center">
-              <strong className="text-gold">Remember:</strong> AI is a tool, like a paintbrush or a pen. 
-              It does not have ideas of its own. It copies what humans have done before.
+              <strong className="text-gold">A retenir :</strong> L&apos;IA est un outil, comme un crayon ou un pinceau. 
+              Elle n&apos;a pas d&apos;idees a elle. Elle copie ce que les humains ont fait avant.
             </p>
           </Card>
         </SlideContent>
@@ -194,7 +194,7 @@ function WhatIsAISlide() {
 }
 
 // ============================================================
-// SLIDE 3: THE ILLUSION OF THE CREATIVE RIVAL
+// SLIDE 3: L'ILLUSION DU RIVAL CREATIF
 // ============================================================
 function CreativeRivalSlide() {
   return (
@@ -206,40 +206,40 @@ function CreativeRivalSlide() {
           transition={{ duration: 0.4 }}
           className="mb-3"
         >
-          <Tag>Part I</Tag>
+          <Tag>Partie I</Tag>
         </motion.div>
         
         <SlideTitle>
-          Can AI <span className="text-gold gold-underline">Replace</span> Human Creativity?
+          L&apos;IA peut-elle <span className="text-gold gold-underline">remplacer</span> la creativite humaine ?
         </SlideTitle>
         <SlideSubtitle>
-          Is your laptop secretly a better artist than you? Let us find out.
+          Est-ce que ton ordinateur secretement fait mieux que toi? Verifions.
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
           <SplitLayout
             left={
               <CompareBox
-                title="What AI Can Do"
+                title="Ce que l'IA peut faire"
                 items={[
-                  "Read millions of books in seconds",
-                  "Write poems that sound nice",
-                  "Draw pictures in any style",
-                  "Copy patterns from old art",
-                  "Always available, never gets tired"
+                  "Lire des millions de livres en quelques secondes",
+                  "Ecrire des poemes qui sonnent bien",
+                  "Dessiner dans n'importe quel style",
+                  "Copier les patterns de l'art ancien",
+                  "Disponible 24h/24, ne se fatigue jamais"
                 ]}
                 type="neutral"
               />
             }
             right={
               <CompareBox
-                title="What Humans Can Do"
+                title="Ce que les humains peuvent faire"
                 items={[
-                  "Feel emotions and express them",
-                  "Create something never seen before",
-                  "Make mistakes that become beautiful",
-                  "Understand pain, joy, and love",
-                  "Choose to break the rules on purpose"
+                  "Ressentir des emotions et les exprimer",
+                  "Creer quelque chose de jamais vu",
+                  "Faire des erreurs qui deviennent belles",
+                  "Comprendre la douleur, la joie et l'amour",
+                  "Choisir de casser les regles a propos"
                 ]}
                 type="good"
               />
@@ -255,7 +255,7 @@ function CreativeRivalSlide() {
             transition={{ delay: 0.8 }}
           >
             <p className="text-sm text-muted-foreground italic">
-              AI copies. Humans imagine. That is the difference.
+              L&apos;IA copie. Les humains imaginent. Voila la difference.
             </p>
           </motion.div>
         </SlideContent>
@@ -265,7 +265,7 @@ function CreativeRivalSlide() {
 }
 
 // ============================================================
-// SLIDE 4: YOUTH CULTURE - FROM DIGITAL NATIVES TO AI NATIVES
+// SLIDE 4: LA CULTURE JEUNE - DES NATIFS DIGITAUX AUX NATIFS IA
 // ============================================================
 function YouthCultureSlide() {
   return (
@@ -277,45 +277,45 @@ function YouthCultureSlide() {
           transition={{ duration: 0.4 }}
           className="mb-3"
         >
-          <Tag>Part II</Tag>
+          <Tag>Partie II</Tag>
         </motion.div>
 
         <SlideTitle>
-          Young People: <span className="text-gold gold-underline">The AI Generation</span>
+          Les Jeunes : <span className="text-gold gold-underline">La Generation IA</span>
         </SlideTitle>
         <SlideSubtitle>
-          Your grandparents learned to code. Your parents learned to Google. You learned to ask AI.
+          Tes grands-parents ont appris a coder. Tes parents ont appris a Google. Toi, tu as appris a demander a l&apos;IA.
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
           <TileLayout columns={3}>
-            <Tile title="A New Way to Create" index={0}>
+            <Tile title="Une Nouvelle Facon de Creer" index={0}>
               <p className="mb-3">
-                Young people no longer just watch and listen. 
-                They <HighlightText>make things with AI right now</HighlightText>.
+                Les jeunes ne se contentent plus de regarder et d&apos;ecouter. 
+                Ils <HighlightText>creent des choses avec l&apos;IA en direct</HighlightText>.
               </p>
               <p className="text-muted-foreground text-xs">
-                A kid in Dakar can make professional music from their bedroom using just a phone.
+                Un gamin a Dakar peut produire de la musique pro depuis sa chambre avec juste son telephone.
               </p>
             </Tile>
             
-            <Tile title="Art for Everyone" index={1}>
+            <Tile title="L&apos;Art pour Tous" index={1}>
               <p className="mb-3">
-                Before, you needed expensive tools to make art. 
-                Now <HighlightText>anyone with a phone can create</HighlightText>.
+                Avant, il fallait des outils chers pour faire de l&apos;art. 
+                Maintenant <HighlightText>n&apos;importe qui avec un telephone peut creer</HighlightText>.
               </p>
               <p className="text-muted-foreground text-xs">
-                No more &ldquo;you need money to be an artist&rdquo; - just your imagination.
+                Fini &ldquo;il faut de l&apos;argent pour etre artiste&rdquo; - juste ton imagination.
               </p>
             </Tile>
             
-            <Tile title="New Stories from Everywhere" index={2}>
+            <Tile title="Des Histoires de Partout" index={2}>
               <p className="mb-3">
-                AI helps people from small towns and far-away places 
-                <HighlightText>share their stories with the whole world</HighlightText>.
+                L&apos;IA aide les gens des petites villes et des pays eloignes 
+                <HighlightText>a partager leurs histoires avec le monde entier</HighlightText>.
               </p>
               <p className="text-muted-foreground text-xs">
-                A writer in a village can now reach readers in Paris, Tokyo, or New York.
+                Un ecrivain d&apos;un village peut maintenant toucher des lecteurs a Paris, Tokyo ou New York.
               </p>
             </Tile>
           </TileLayout>
@@ -323,8 +323,8 @@ function YouthCultureSlide() {
 
         <SlideContent delay={0.6} className="mt-8">
           <Quote
-            text="Young people today are not just watching culture happen. They are building it, with AI as their toolbox."
-            author="UNESCO Digital Culture Report, 2025"
+            text="Les jeunes d&apos;aujourd&apos;hui ne se contentent pas de regarder la culture se faire. Ils la construisent, avec l&apos;IA comme boite a outils."
+            author="Rapport UNESCO sur la Culture Numerique, 2025"
           />
         </SlideContent>
       </div>
@@ -333,7 +333,7 @@ function YouthCultureSlide() {
 }
 
 // ============================================================
-// SLIDE 5: LITERATURE & THE AUGMENTED WRITER
+// SLIDE 5: LA LITTERATURE & L&apos;ECRIVAIN AUGMENTE
 // ============================================================
 function LiteratureSlide() {
   return (
@@ -345,52 +345,52 @@ function LiteratureSlide() {
           transition={{ duration: 0.4 }}
           className="mb-3"
         >
-          <Tag>Part III</Tag>
+          <Tag>Partie III</Tag>
         </motion.div>
 
         <SlideTitle>
-          Books & Writing with <span className="text-gold gold-underline">AI Help</span>
+          Les Livres & l&apos;Ecriture avec <span className="text-gold gold-underline">l&apos;IA</span>
         </SlideTitle>
         <SlideSubtitle>
-          When the blank page scares you, AI can be your writing buddy
+          Quand la page blanche te fait peur, l&apos;IA peut etre ton coequipier
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
           <TileLayout columns={3}>
-            <Tile title="Say Goodbye to Writer's Block" index={0}>
+            <Tile title="Adieu le Blocage de l&apos;Ecrivain" index={0}>
               <ul className="space-y-2">
-                <ListItem>Stuck on what to write? AI gives you ideas</ListItem>
-                <ListItem>Need a character? AI helps you build one</ListItem>
-                <ListItem>Need a plot twist? AI suggests surprises</ListItem>
+                <ListItem>Tu es bloque? L&apos;IA te donne des idees</ListItem>
+                <ListItem>Il te faut un personnage? L&apos;IA t&apos;aide a le construire</ListItem>
+                <ListItem>Il te faut un rebondissement? L&apos;IA te propose des surprises</ListItem>
               </ul>
             </Tile>
             
-            <Tile title="Speak Every Language" index={1}>
+            <Tile title="Parle Toutes les Langues" index={1}>
               <ul className="space-y-2">
-                <ListItem>Translate a story into 50 languages instantly</ListItem>
-                <ListItem>Readers everywhere can enjoy your work</ListItem>
-                <ListItem>No more language barriers</ListItem>
+                <ListItem>Traduis une histoire en 50 langues en un instant</ListItem>
+                <ListItem>Des lecteurs partout peuvent profiter de ton travail</ListItem>
+                <ListItem>Fini les barrieres linguistiques</ListItem>
               </ul>
             </Tile>
             
-            <Tile title="Stories That Talk Back" index={2}>
+            <Tile title="Des Histoires qui Repondent" index={2}>
               <ul className="space-y-2">
-                <ListItem>Books where YOU choose what happens next</ListItem>
-                <ListItem>The story changes based on your choices</ListItem>
-                <ListItem>Like a game, but with words</ListItem>
+                <ListItem>Des livres ou TU choisis ce qui se passe ensuite</ListItem>
+                <ListItem>L&apos;histoire change selon tes choix</ListItem>
+                <ListItem>Comme un jeu, mais avec des mots</ListItem>
               </ul>
             </Tile>
           </TileLayout>
         </SlideContent>
 
         <SlideContent delay={0.5} className="mt-8">
-          <Card highlight className="max-w-4xl mx-auto">
+          <Card className="max-w-4xl mx-auto border-gold">
             <div className="flex items-start gap-4">
               <div>
-                <h4 className="font-serif text-lg font-semibold mb-2">The Big Idea</h4>
+                <h4 className="font-serif text-lg font-semibold mb-2">L&apos;idee Principale</h4>
                 <p className="text-sm leading-relaxed">
-                  AI does not write <em>for</em> you. It writes <em>with</em> you. 
-                  You are the boss. AI is the helper.
+                  L&apos;IA n&apos;ecrit pas <em>pour</em> toi, elle ecrit <em>avec</em> toi. 
+                  Tu es le patron. L&apos;IA est l&apos;assistant.
                 </p>
               </div>
             </div>
@@ -402,7 +402,7 @@ function LiteratureSlide() {
 }
 
 // ============================================================
-// SLIDE 6: THE INVISIBLE ALGORITHMIC CAGE
+// SLIDE 6: L&apos;ALGORITHME TE SURVEILLE
 // ============================================================
 function AlgorithmicCageSlide() {
   return (
@@ -414,44 +414,43 @@ function AlgorithmicCageSlide() {
           transition={{ duration: 0.4 }}
           className="mb-3"
         >
-          <Tag variant="warning">Be Careful</Tag>
+          <Tag variant="warning">Attention</Tag>
         </motion.div>
 
         <SlideTitle>
-          The <span className="text-gold gold-underline">Algorithm</span> is Watching You
+          L&apos;<span className="text-gold gold-underline">Algorithme</span> Te Surveille
         </SlideTitle>
         <SlideSubtitle>
-          The app knows what you like. But does it know what is good for you?
+          L&apos;application sait ce que tu aimes. Mais est-ce que elle sait ce qui est bon pour toi?
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
           <div className="space-y-6">
             <WarningBox>
-              <h4 className="font-serif text-lg font-semibold mb-2">The Trap of Seeing Only One Thing</h4>
+              <h4 className="font-serif text-lg font-semibold mb-2">Le Piege de Ne Voir Qu&apos;Une Seule Chose</h4>
               <p className="text-sm leading-relaxed">
-                The algorithm shows you more of what you already like. 
-                You never see new ideas, different opinions, or strange art. 
-                You live in a bubble and do not even know it.
+                L&apos;algorithme te montre plus de ce que tu aimes deja. 
+                Tu ne vois jamais de nouvelles idees, d&apos;opinions differentes, ou d&apos;art bizarre. 
+                Tu vis dans une bulle sans le savoir.
               </p>
             </WarningBox>
 
             <WarningBox>
-              <h4 className="font-serif text-lg font-semibold mb-2">Everything Starts to Look the Same</h4>
+              <h4 className="font-serif text-lg font-semibold mb-2">Tout Commence a Se Ressembler</h4>
               <p className="text-sm leading-relaxed">
-                When AI makes art for everyone, it makes the same kind of art. 
-                Safe, boring, and predictable. The weird, crazy, beautiful stuff 
-                gets pushed to the side.
+                Quand l&apos;IA fait de l&apos;art pour tout le monde, elle fait le meme genre d&apos;art. 
+                Sur, ennuyeux et previsible. Le truc bizarre, fou et beau? Il est pousse de cote.
               </p>
             </WarningBox>
 
-            <Card highlight>
+            <Card className="border-gold">
               <div className="flex items-start gap-4">
                 <div>
-                  <h4 className="font-serif text-lg font-semibold mb-2">How to Break Free</h4>
-                  <p className="text-sm leading-relaxed text-cream/90">
-                    You have the power. Search for strange music. Read weird books. 
-                    Watch things the algorithm does not recommend. 
-                    <strong> Your taste is your rebellion.</strong>
+                  <h4 className="font-serif text-lg font-semibold mb-2">Comment S&apos;En Sortir</h4>
+                  <p className="text-sm leading-relaxed">
+                    Tu as le pouvoir. Cherche de la musique bizarre. Lis des livres etranges. 
+                    Regarde des choses que l&apos;algorithme ne te recommande pas. 
+                    <strong> Ton gout est ta rebellion.</strong>
                   </p>
                 </div>
               </div>
@@ -464,7 +463,7 @@ function AlgorithmicCageSlide() {
 }
 
 // ============================================================
-// SLIDE 7: PROTECTING THE HUMAN CORE
+// SLIDE 7: CE QUI NOUS REND SPECIAUX
 // ============================================================
 function HumanCoreSlide() {
   return (
@@ -476,14 +475,14 @@ function HumanCoreSlide() {
           transition={{ duration: 0.4 }}
           className="mb-3"
         >
-          <Tag>Part IV</Tag>
+          <Tag>Partie IV</Tag>
         </motion.div>
 
         <SlideTitle>
-          What Makes Us <span className="text-gold gold-underline">Special</span>
+          Ce Qui Nous Rend <span className="text-gold gold-underline">Speciaux</span>
         </SlideTitle>
         <SlideSubtitle>
-          Your mistakes, your weird ideas, your feelings - that is your superpower
+          Tes erreurs, tes idees bizarres, tes sentiments - ca, c&apos;est ton superpouvoir
         </SlideSubtitle>
         
         <SlideContent delay={0.3} className="mt-10">
@@ -491,31 +490,31 @@ function HumanCoreSlide() {
             left={
               <Card>
                 <div className="space-y-4">
-                  <h3 className="font-serif text-2xl font-semibold">Mistakes Are Beautiful</h3>
+                  <h3 className="font-serif text-2xl font-semibold">Les Erreurs Sont Belles</h3>
                   <p className="text-sm leading-relaxed mb-4">
-                    AI makes things perfect every time. But real art? 
-                    It comes from <HighlightText>happy accidents</HighlightText>.
+                    L&apos;IA fait les choses parfaitement a chaque fois. Mais le vrai art? 
+                    Il vient des <HighlightText>accidents heureux</HighlightText>.
                   </p>
                   <ul className="space-y-2 text-sm">
-                    <ListItem>A spilled paint drop becomes a masterpiece</ListItem>
-                    <ListItem>A wrong note becomes a new melody</ListItem>
-                    <ListItem>A typo becomes the best part of a poem</ListItem>
+                    <ListItem>Une tache de peinture devient un chef-d&apos;oeuvre</ListItem>
+                    <ListItem>Une note fausse devient une nouvelle melodie</ListItem>
+                    <ListItem>Une faute d&apos;orthographe devient la meilleure partie d&apos;un poeme</ListItem>
                   </ul>
                 </div>
               </Card>
             }
             right={
-              <Card highlight>
+              <Card>
                 <div className="space-y-4">
-                  <h3 className="font-serif text-2xl font-semibold">Your Taste Matters</h3>
-                  <p className="text-sm leading-relaxed mb-4 text-cream/90">
-                    When everyone can make art with AI, the person who 
-                    <HighlightText>chooses what is good</HighlightText> becomes the hero.
+                  <h3 className="font-serif text-2xl font-semibold text-gold">Ton Gout Compte</h3>
+                  <p className="text-sm leading-relaxed mb-4">
+                    Quand tout le monde peut faire de l&apos;art avec l&apos;IA, 
+                    la personne qui <HighlightText>choisit ce qui est bon</HighlightText> devient le heros.
                   </p>
-                  <ul className="space-y-2 text-sm text-cream/90">
-                    <ListItem>The DJ who picks the right song</ListItem>
-                    <ListItem>The curator who says &ldquo;this matters&rdquo;</ListItem>
-                    <ListItem>The editor who makes it shine</ListItem>
+                  <ul className="space-y-2 text-sm">
+                    <ListItem>Le DJ qui choisit la bonne chanson</ListItem>
+                    <ListItem>Le curateur qui dit &ldquo;ca compte&rdquo;</ListItem>
+                    <ListItem>L&apos;editeur qui fait briller le texte</ListItem>
                   </ul>
                 </div>
               </Card>
@@ -525,9 +524,9 @@ function HumanCoreSlide() {
 
         <SlideContent delay={0.5} className="mt-8">
           <Quote
-            text="In a world full of AI art, the person with good taste becomes the most valuable creator of all."
+            text="Dans un monde plein d&apos;art fait par l&apos;IA, la personne avec un bon gout devient le createur le plus precieux de tous."
             author="Ted Chiang"
-            source="Exhalation: Stories"
+            source="Exhalation: Nouvelles"
           />
         </SlideContent>
       </div>
@@ -536,7 +535,7 @@ function HumanCoreSlide() {
 }
 
 // ============================================================
-// SLIDE 8: CONCLUSION & CONVERSATION
+// SLIDE 8: CONCLUSION
 // ============================================================
 function ConclusionSlide() {
   return (
@@ -548,7 +547,7 @@ function ConclusionSlide() {
           transition={{ duration: 1 }}
         >
           <SlideTitle className="text-cream mb-8">
-            The <span className="text-gold">Big Lesson</span>
+            La <span className="text-gold">Grande Lecon</span>
           </SlideTitle>
 
           <SlideContent delay={0.3}>
@@ -567,15 +566,15 @@ function ConclusionSlide() {
               transition={{ delay: 0.7, duration: 0.7 }}
               className="font-serif text-2xl md:text-3xl lg:text-4xl text-cream leading-relaxed italic my-12"
             >
-              &ldquo;AI will not replace creative people. <br />
+              &ldquo;L&apos;IA ne remplacera pas les createurs. <br />
               <motion.span 
                 className="text-gold font-semibold"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2 }}
               >
-                Creative people who use AI
-              </motion.span> will replace those who do not.&rdquo;
+                Les createurs qui utilisent l&apos;IA
+              </motion.span> remplaceront ceux qui ne le font pas.&rdquo;
             </motion.blockquote>
 
             <motion.div 
@@ -594,8 +593,8 @@ function ConclusionSlide() {
               className="mt-12 space-y-4"
             >
               <p className="text-cream/90 text-lg">
-                Use AI to help you. Do not let it replace you. <br />
-                Create with <span className="text-gold font-semibold">courage and heart</span>.
+                Utilise l&apos;IA pour t&apos;aider. Ne laisse pas elle te remplacer. <br />
+                Cree avec <span className="text-gold font-semibold">courage et coeur</span>.
               </p>
             </motion.div>
 
@@ -605,8 +604,8 @@ function ConclusionSlide() {
               transition={{ delay: 1.7 }}
               className="mt-16"
             >
-              <p className="text-cream font-serif text-4xl font-semibold mb-3">Thank you!</p>
-              <p className="text-cream/70 text-xl italic">Merci pour votre attention.</p>
+              <p className="text-cream font-serif text-4xl font-semibold mb-3">Merci!</p>
+              <p className="text-cream/70 text-xl italic">Merci de votre attention.</p>
             </motion.div>
 
             <motion.div
@@ -645,13 +644,13 @@ function ConclusionSlide() {
 // EXPORT ALL SLIDES
 // ============================================================
 export const slides = [
-  { component: TitleSlide, title: "Title" },
-  { component: WhatIsAISlide, title: "What is AI?" },
-  { component: CreativeRivalSlide, title: "Can AI Replace Us?" },
-  { component: YouthCultureSlide, title: "The AI Generation" },
-  { component: LiteratureSlide, title: "Writing with AI" },
-  { component: AlgorithmicCageSlide, title: "The Algorithm Trap" },
-  { component: HumanCoreSlide, title: "What Makes Us Special" },
+  { component: TitleSlide, title: "Titre" },
+  { component: WhatIsAISlide, title: "Qu'est-ce que l'IA?" },
+  { component: CreativeRivalSlide, title: "L'IA peut-elle nous remplacer?" },
+  { component: YouthCultureSlide, title: "La Generation IA" },
+  { component: LiteratureSlide, title: "Ecrire avec l'IA" },
+  { component: AlgorithmicCageSlide, title: "Le Piege de l'Algorithme" },
+  { component: HumanCoreSlide, title: "Ce Qui Nous Rend Speciaux" },
   { component: ConclusionSlide, title: "Conclusion" }
 ]
 
@@ -659,78 +658,77 @@ export const slides = [
 // SPEAKER NOTES
 // ============================================================
 export const speakerNotes: Record<number, string> = {
-  0: `Welcome everyone!
+  0: `Bienvenue a tous!
 
-My name is Abdoullah Ndao. Today we are going to talk about something very exciting: how computers that think, called Artificial Intelligence, are changing the way we make art, write stories, and create music.
+Je m'appelle Abdoullah Ndao. Aujourd'hui, on va parler de quelque chose de tres excitant: comment les ordinateurs qui pensent, qu'on appelle l'Intelligence Artificielle, changent la facon dont on fait de l'art, on ecrit des histoires et on fait de la musique.
 
-This is not a boring lesson. This is a fun conversation about the future.
+Ce n'est pas un cours ennuyeux. C'est une conversation amusante sur le futur.
 
-We have people of all ages here today, from young to old. So I will keep things simple and clear.
+On a des gens de tous les ages ici aujourd'hui, des jeunes aux adultes. Alors je vais garder les choses simples et claires.
 
-Let us begin!`,
+Commençons!`,
 
-  1: `First, let us understand what AI and algorithms actually are.
+  1: `D'abord, comprenons ce que sont l'IA et les algorithmes.
 
-AI stands for Artificial Intelligence. It is a computer program that learned from millions of books, articles, and websites. It finds patterns, then copies them. It does not have a brain. It does not feel anything. It just finds patterns and copies them.
+IA veut dire Intelligence Artificielle. C'est un programme d'ordinateur qui a lu des millions de livres, d'articles et de sites web. Il trouve des patterns, puis les copie. Il n'a pas de cerveau. Il ne ressent rien. Il trouve juste des patterns et les copie.
 
-Think of it like this: if you read 10,000 jokes about cats, you could write a cat joke too. AI does the same thing, but with millions of things at once.
+Pensez a ca comme ca: si vous lisiez 10 000 blagues sur les chats, vous pourriez en inventer une aussi. L'IA fait la meme chose, mais avec des millions de choses en meme temps.
 
-Algorithms are like recipes. Step-by-step instructions. Your TikTok feed uses an algorithm. YouTube uses one too. It watches what you like, then gives you more of the same.
+Les algorithmes, c'est comme des recettes. Des etapes a suivre. Ton fil TikTok utilise un algorithme. YouTube aussi. Il regarde ce que tu aimes, puis te donne plus de la meme chose.
 
-The most important thing to remember: AI is a tool, like a pencil or a paintbrush. It does not have its own ideas. It copies what humans made before.`,
+La chose la plus importante a retenir: L'IA est un outil, comme un crayon ou un pinceau. Elle n'a pas d'idees a elle. Elle copie ce que les humains ont fait avant.`,
 
-  2: `Now let us talk about the big question: Can AI replace human creativity?
+  2: `Maintenant, parlons de la grande question: Est-ce que l'IA peut remplacer la creativite humaine?
 
-The answer is no. Here is why.
+La reponse est non. Voici pourquoi.
 
-On one side, we have what AI can do: read millions of books in seconds, write poems that sound nice, draw pictures in any style. It is very impressive.
+D'un cote, on a ce que l'IA peut faire: lire des millions de livres en secondes, ecrire des poemes qui sonnent bien, dessiner dans n'importe quel style. C'est tres impressionnant.
 
-On the other side, we have what humans can do: feel emotions and express them, create something never seen before, make mistakes that become beautiful. AI cannot do these things.
+De l'autre cote, on a ce que les humains peuvent faire: ressentir des emotions et les exprimer, creer quelque chose de jamais vu, faire des erreurs qui deviennent belles. L'IA ne peut pas faire ca.
 
-AI copies. Humans imagine. That is the difference.`,
+L'IA copie. Les humains imaginent. Voila la difference.`,
 
-  3: `Now let us talk about young people and AI.
+  3: `Maintenant, parlons des jeunes et de l'IA.
 
-Young people today are not just watching. They are making things. A kid in Dakar can make professional music from their bedroom. A teenager can write a book and translate it into 50 languages. An artist can make gallery art with just a phone.
+Les jeunes d'aujourd'hui ne se contentent plus de regarder. Ils font des choses. Un gamin a Dakar peut produire de la musique pro depuis sa chambre. Un adolescent peut ecrire un livre et le traduire en 50 langues. Un artiste peut faire de l'art de galerie avec juste son telephone.
 
-Before, you needed money and expensive tools to be an artist. Now anyone with a phone can create.
+Avant, il fallait de l'argent et des outils chers pour etre artiste. Maintenant n'importe qui avec un telephone peut creer.
 
-And the best part? Stories from small towns and far-away places can now reach readers everywhere. No more gatekeepers.`,
+Et la meilleure partie? Les histoires des petites villes et des pays eloignes peuvent maintenant toucher des lecteurs partout. Fini les gardiens de la porte.`,
 
-  4: `Let us talk about books and writing with AI.
+  4: `Parlons des livres et de l'ecriture avec l'IA.
 
-Have you ever stared at a blank page and not known what to write? That is called writer's block. AI can help with that. You ask it for ideas, and it gives you some. You ask it for a character, and it helps you build one.
+Est-ce que tu as deja fixe une page blanche sans savoir quoi ecrire? Ca s'appelle le blocage de l'ecrivain. L'IA peut aider. Tu lui demandes des idees, et elle t'en donne. Tu lui demandes un personnage, et elle t'aide a le construire.
 
-AI can also translate your story into 50 languages instantly. A book written in Wolof can be read in Tokyo. A poem in French can be read in English.
+L'IA peut aussi traduire ton histoire en 50 langues instantanement. Un livre ecrit en wolof peut etre lu a Tokyo. Un poeme en francais peut etre lu en anglais.
 
-And the coolest part? Interactive books where YOU choose what happens next. Like a game, but with words.
+Et le truc le plus cool? Les livres interactifs ou TU choisis ce qui se passe ensuite. Comme un jeu, mais avec des mots.
 
-Remember: AI does not write for you. It writes with you. You are the boss. AI is the helper.`,
+Retiens: L'IA n'ecrit pas pour toi. Elle ecrit avec toi. Tu es le patron. L'IA est l'assistant.`,
 
-  5: `Now we need to talk about the algorithm, and why you should be careful.
+  5: `Maintenant, on doit parler de l'algorithme, et pourquoi tu dois faire attention.
 
-You know when you watch one video on YouTube, and then it recommends the same type of video for three hours? That is the algorithm. It shows you more of what you already like. You never see new ideas, different opinions, or strange art. You live in a bubble and do not even know it.
+Tu sais quand tu regardes une video sur YouTube, et apres il te recommande le meme type de video pendant 3 heures? C'est l'algorithme. Il te montre plus de ce que tu aimes deja. Tu ne vois jamais de nouvelles idees, d'opinions differentes, ou d'art bizarre. Tu vis dans une bulle sans le savoir.
 
-And when AI makes art for everyone, it makes the same kind of art. Safe, boring, and predictable. The weird, crazy, beautiful stuff gets pushed to the side.
+Et quand l'IA fait de l'art pour tout le monde, elle fait le meme genre d'art. Sur, ennuyeux et previsible. Le truc bizarre, fou et beau? Il est pousse de cote.
 
-But you have the power! Search for strange music. Read weird books. Watch things the algorithm does not recommend. Your taste is your rebellion.`,
+Mais tu as le pouvoir! Cherche de la musique bizarre. Lis des livres etranges. Regarde des choses que l'algorithme ne te recommande pas. Ton gout est ta rebellion.`,
 
-  6: `Finally, let us talk about what makes humans special.
+  6: `Enfin, parlons de ce qui rend les humains speciaux.
 
-AI makes things perfect every time. But real art? It comes from happy accidents. A spilled paint drop becomes a masterpiece. A wrong note becomes a new melody. A typo becomes the best part of a poem.
+L'IA fait les choses parfaitement a chaque fois. Mais le vrai art? Il vient des accidents heureux. Une tache de peinture devient un chef-d'oeuvre. Une note fausse devient une nouvelle melodie. Une faute d'orthographe devient la meilleure partie d'un poeme.
 
-Also, when everyone can make art with AI, the person who chooses what is good becomes the hero. The DJ who picks the right song. The curator who says "this matters." The editor who makes it shine.
+Aussi, quand tout le monde peut faire de l'art avec l'IA, la personne qui choisit ce qui est bon devient le heros. Le DJ qui choisit la bonne chanson. Le curateur qui dit "ca compte". L'editeur qui fait briller le texte.
 
-Your weird taste in music? Your strange ideas? Your messy, beautiful feelings? That is your superpower.`,
+Ton gout de musique bizarre? Tes idees etranges? Tes sentiments desordonnes et beaux? Ca, c'est ton superpouvoir.`,
 
-  7: `So what did we learn today?
+  7: `Alors qu'est-ce qu'on a appris aujourd'hui?
 
-AI will not replace creative people. But creative people who use AI will replace those who do not.
+L'IA ne remplacera pas les createurs. Mais les createurs qui utilisent l'IA remplaceront ceux qui ne le font pas.
 
-Use AI to help you. Do not let it replace you. Create with courage and heart.
+Utilise l'IA pour t'aider. Ne laisse pas elle te remacer. Cree avec courage et coeur.
 
-Remember: Your imperfections are your superpower. Your taste is your rebellion. Your creativity is irreplaceable.
+Retiens: Tes imperfections sont ton superpouvoir. Ton gout est ta rebellion. Ta creativite est irremplacable.
 
-Thank you! Merci! Let us discuss.`
-
+Merci! Discutons!`
 }
